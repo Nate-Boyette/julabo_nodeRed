@@ -1,10 +1,10 @@
 # julabo_nodeRed
-Interface w/ Julabo heater-chiller over RS-232 and bridge to Ignition via node-red
+## Bring Julabo CF-31 into Ignition via RS-232 -> NodeRed -> OPC UA <br>
 
-Hardware is a Pi 5
+Hardware is a Pi 5<br>
 
-Hostname: Julabo
-Username: admin
-Password: Abbott1!
+Hostname: Julabo<br>
+Username: admin<br>
+Password: Abbott1!<br>
 
-Connected to TSE wifi
+Connected to TSE wifi<br>
