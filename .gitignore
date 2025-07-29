@@ -1,0 +1,21 @@
+# Node-RED sensitive files
+.config.users.json
+.config.users.json.backup
+.config.runtime.json
+
+# Node modules
+node_modules/
+
+# Backup files (optional - remove these lines if you want to track backups)
+*.backup
+.*.backup
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*~
+.vscode/
+.idea/
