@@ -1,170 +1,77 @@
 [
     {
-        "id": "77739f07d1fee012",
+        "id": "f32c6fbb9d3b3885",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Add Item",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "eef81d50a1dfa758",
-        "type": "serial-port",
-        "name": "RS232",
-        "serialport": "/dev/ttyUSB0",
-        "serialbaud": "4800",
-        "databits": "7",
-        "parity": "even",
-        "stopbits": 1,
-        "waitfor": "",
-        "dtr": "none",
-        "rts": "none",
-        "cts": "none",
-        "dsr": "none",
-        "newline": "\\n",
-        "bin": "false",
-        "out": "char",
-        "addchar": " \\r",
-        "responsetimeout": 10000
+        "id": "b4792f36.7b37e",
+        "type": "tab",
+        "label": "NodeRed UA-Server",
+        "disabled": false,
+        "info": ""
     },
     {
-        "id": "34a7d51580ea7526",
-        "type": "ui-base",
-        "name": "My Dashboard",
-        "path": "/dashboard",
-        "appIcon": "",
-        "includeClientData": true,
-        "acceptsClientConfig": [
-            "ui-notification",
-            "ui-control"
-        ],
-        "showPathInSidebar": false,
-        "headerContent": "page",
-        "navigationStyle": "default",
-        "titleBarStyle": "default",
-        "showReconnectNotification": true,
-        "notificationDisplayTime": 1,
-        "showDisconnectNotification": true,
-        "allowInstall": true
+        "id": "0c7cfe180c3dd028",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://10.20.8.215:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
     },
     {
-        "id": "c780e8d77f7b8125",
-        "type": "ui-theme",
-        "name": "Default Theme",
-        "colors": {
-            "surface": "#ffffff",
-            "primary": "#0094CE",
-            "bgPage": "#eeeeee",
-            "groupBg": "#ffffff",
-            "groupOutline": "#cccccc"
-        },
-        "sizes": {
-            "density": "default",
-            "pagePadding": "12px",
-            "groupGap": "12px",
-            "groupBorderRadius": "4px",
-            "widgetGap": "12px"
-        }
+        "id": "f31d6f644630ad06",
+        "type": "OpcUa-Server",
+        "z": "f32c6fbb9d3b3885",
+        "port": "4840",
+        "name": "",
+        "endpoint": "",
+        "users": "users.json",
+        "nodesetDir": "",
+        "autoAcceptUnknownCertificate": true,
+        "registerToDiscovery": false,
+        "constructDefaultAddressSpace": false,
+        "allowAnonymous": true,
+        "endpointNone": true,
+        "endpointSign": false,
+        "endpointSignEncrypt": false,
+        "endpointBasic128Rsa15": false,
+        "endpointBasic256": false,
+        "endpointBasic256Sha256": false,
+        "maxNodesPerBrowse": 0,
+        "maxNodesPerHistoryReadData": 0,
+        "maxNodesPerHistoryReadEvents": 0,
+        "maxNodesPerHistoryUpdateData": 0,
+        "maxNodesPerRead": 0,
+        "maxNodesPerWrite": 0,
+        "maxNodesPerMethodCall": 0,
+        "maxNodesPerRegisterNodes": 0,
+        "maxNodesPerNodeManagement": 0,
+        "maxMonitoredItemsPerCall": 0,
+        "maxNodesPerHistoryUpdateEvents": 0,
+        "maxNodesPerTranslateBrowsePathsToNodeIds": 0,
+        "maxConnectionsPerEndpoint": 20,
+        "maxMessageSize": 4096,
+        "maxBufferSize": 4096,
+        "maxSessions": 20,
+        "x": 800,
+        "y": 100,
+        "wires": [
+            []
+        ]
     },
     {
-        "id": "1f3fa0e6eacd842e",
-        "type": "ui-page",
-        "name": "Page 1",
-        "ui": "34a7d51580ea7526",
-        "path": "/page1",
-        "icon": "home",
-        "layout": "grid",
-        "theme": "c780e8d77f7b8125",
-        "breakpoints": [
-            {
-                "name": "Default",
-                "px": 0,
-                "cols": 3
-            },
-            {
-                "name": "Tablet",
-                "px": 576,
-                "cols": 6
-            },
-            {
-                "name": "Small Desktop",
-                "px": 768,
-                "cols": 9
-            },
-            {
-                "name": "Desktop",
-                "px": 1024,
-                "cols": 12
-            }
-        ],
-        "order": 1,
-        "className": "",
-        "visible": "true",
-        "disabled": "false"
-    },
-    {
-        "id": "5d2c8ad10fce93c9",
-        "type": "ui-group",
-        "name": "Chiller",
-        "page": "1f3fa0e6eacd842e",
-        "width": 6,
-        "height": 1,
-        "order": 1,
-        "showTitle": true,
-        "className": "",
-        "visible": "true",
-        "disabled": "false",
-        "groupType": "default"
-    },
-    {
-        "id": "693241f465135f6a",
-        "type": "ui-spacer",
-        "group": "5d2c8ad10fce93c9",
-        "name": "spacer",
-        "tooltip": "",
-        "order": 9,
-        "width": 1,
-        "height": 1,
-        "className": ""
-    },
-    {
-        "id": "1a485ec106a5efbf",
-        "type": "ui-spacer",
-        "group": "5d2c8ad10fce93c9",
-        "name": "spacer",
-        "tooltip": "",
-        "order": 7,
-        "width": 1,
-        "height": 1,
-        "className": ""
-    },
-    {
-        "id": "f8d7bff1315d5e26",
-        "type": "ui-spacer",
-        "group": "5d2c8ad10fce93c9",
-        "name": "spacer",
-        "tooltip": "",
-        "order": 11,
-        "width": 1,
-        "height": 1,
-        "className": ""
-    },
-    {
-        "id": "bd35b320e599fccc",
-        "type": "ui-link",
-        "name": "Link 1",
-        "ui": "34a7d51580ea7526",
-        "path": "/",
-        "icon": "home",
-        "order": 2,
-        "visible": true,
-        "disabled": false
-    },
-    {
-        "id": "fc4828b3c9dedc62",
+        "id": "4ef6764bc686e5de",
         "type": "debug",
-        "z": "77739f07d1fee012",
-        "name": "Output Message",
+        "z": "f32c6fbb9d3b3885",
+        "name": "debug 1",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -174,29 +81,14 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 800,
-        "y": 100,
+        "y": 180,
         "wires": []
     },
     {
-        "id": "2127492e50451c2d",
-        "type": "serial request",
-        "z": "77739f07d1fee012",
-        "name": "rs232",
-        "serial": "eef81d50a1dfa758",
-        "x": 630,
-        "y": 280,
-        "wires": [
-            [
-                "0141e63a67abf376",
-                "fc4828b3c9dedc62"
-            ]
-        ]
-    },
-    {
-        "id": "20c639345ca90e29",
+        "id": "9d54c0c8f4768b2a",
         "type": "inject",
-        "z": "77739f07d1fee012",
-        "name": "Bath Temp",
+        "z": "f32c6fbb9d3b3885",
+        "name": "AddFolder",
         "props": [
             {
                 "p": "payload"
@@ -206,26 +98,27 @@
                 "vt": "str"
             }
         ],
-        "repeat": "5",
+        "repeat": "",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
-        "topic": "bathTemp",
-        "payload": "IN_PV_00",
-        "payloadType": "str",
-        "x": 190,
-        "y": 180,
+        "topic": "ns=3;s=TestAddFolder0",
+        "payload": "{\"opcuaCommand\":\"addFolder\"}",
+        "payloadType": "json",
+        "x": 540,
+        "y": 100,
         "wires": [
             [
-                "2127492e50451c2d"
+                "f31d6f644630ad06",
+                "4ef6764bc686e5de"
             ]
         ]
     },
     {
-        "id": "6dcd2d6171198e9d",
+        "id": "57ab927e159540aa",
         "type": "inject",
-        "z": "77739f07d1fee012",
-        "name": "Status",
+        "z": "f32c6fbb9d3b3885",
+        "name": "SetFolder",
         "props": [
             {
                 "p": "payload"
@@ -235,26 +128,27 @@
                 "vt": "str"
             }
         ],
-        "repeat": "1",
+        "repeat": "",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
-        "topic": "status",
-        "payload": "status",
-        "payloadType": "str",
-        "x": 180,
-        "y": 240,
+        "topic": "ns=1;s=TestAddFolder",
+        "payload": "{\"opcuaCommand\":\"setFolder\"}",
+        "payloadType": "json",
+        "x": 540,
+        "y": 140,
         "wires": [
             [
-                "2127492e50451c2d"
+                "f31d6f644630ad06",
+                "4ef6764bc686e5de"
             ]
         ]
     },
     {
-        "id": "ebf0de748a8f9da1",
+        "id": "45836e0e7fea7fb2",
         "type": "inject",
-        "z": "77739f07d1fee012",
-        "name": "External Temp",
+        "z": "f32c6fbb9d3b3885",
+        "name": "AddVariable",
         "props": [
             {
                 "p": "payload"
@@ -264,84 +158,60 @@
                 "vt": "str"
             }
         ],
-        "repeat": "5",
+        "repeat": "",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
-        "topic": "externalTemp",
-        "payload": "IN_PV_02",
-        "payloadType": "str",
-        "x": 180,
-        "y": 300,
+        "topic": "ns=1;s=TestAddVariable2;datatype=Float",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 530,
+        "y": 220,
         "wires": [
             [
-                "2127492e50451c2d"
+                "f31d6f644630ad06",
+                "4ef6764bc686e5de"
             ]
         ]
     },
     {
-        "id": "a5ee9ea1f4deddc9",
-        "type": "inject",
-        "z": "77739f07d1fee012",
-        "name": "SP_FB",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "7",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "spFb",
-        "payload": "IN_SP_00",
-        "payloadType": "str",
-        "x": 200,
+        "id": "341c3f2e2b090047",
+        "type": "OpcUa-Client",
+        "z": "f32c6fbb9d3b3885",
+        "endpoint": "0c7cfe180c3dd028",
+        "action": "write",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "setstatusandtime": false,
+        "keepsessionalive": false,
+        "name": "",
+        "x": 520,
         "y": 360,
         "wires": [
             [
-                "2127492e50451c2d"
-            ]
+                "f31d6f644630ad06"
+            ],
+            [],
+            []
         ]
     },
     {
-        "id": "350fceb022f39b47",
+        "id": "009cae5727865db9",
         "type": "inject",
-        "z": "77739f07d1fee012",
-        "name": "Bath Temp Units",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "60",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "bathTempUnits",
-        "payload": "IN_SP_06",
-        "payloadType": "str",
-        "x": 230,
-        "y": 420,
-        "wires": [
-            [
-                "2127492e50451c2d"
-            ]
-        ]
-    },
-    {
-        "id": "0c89800cacac5725",
-        "type": "inject",
-        "z": "77739f07d1fee012",
-        "name": "SP ",
+        "z": "f32c6fbb9d3b3885",
+        "name": "",
         "props": [
             {
                 "p": "payload"
@@ -355,499 +225,187 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "",
-        "payload": "OUT_SP_00 25",
-        "payloadType": "str",
-        "x": 130,
-        "y": 700,
-        "wires": [
-            [
-                "fda15a43f350b9cd"
-            ]
-        ]
-    },
-    {
-        "id": "6eef82f1898d7ea2",
-        "type": "comment",
-        "z": "77739f07d1fee012",
-        "name": "Status",
-        "info": "",
-        "x": 170,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "a4898d68992732e7",
-        "type": "comment",
-        "z": "77739f07d1fee012",
-        "name": "Control",
-        "info": "",
-        "x": 170,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "1e9506cddc1871f5",
-        "type": "inject",
-        "z": "77739f07d1fee012",
-        "name": "Start",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "OUT_MODE_05 1",
-        "payloadType": "str",
-        "x": 130,
-        "y": 760,
-        "wires": [
-            [
-                "686e4936582016ce"
-            ]
-        ]
-    },
-    {
-        "id": "cff57832a045b8b7",
-        "type": "inject",
-        "z": "77739f07d1fee012",
-        "name": "Stop",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "OUT_MODE_05 0",
-        "payloadType": "str",
-        "x": 130,
-        "y": 840,
-        "wires": [
-            [
-                "c90b838b8c21fd29"
-            ]
-        ]
-    },
-    {
-        "id": "3202b71f566061ee",
-        "type": "serial out",
-        "z": "77739f07d1fee012",
-        "name": "RS232",
-        "serial": "eef81d50a1dfa758",
-        "x": 750,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "c239ebc99cd350e6",
-        "type": "change",
-        "z": "77739f07d1fee012",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "0",
-                "fromt": "str",
-                "to": "C",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "1",
-                "fromt": "str",
-                "to": "F",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 340,
-        "wires": [
-            [
-                "00a03e5447dc9573"
-            ]
-        ]
-    },
-    {
-        "id": "c7096e8e941dac22",
-        "type": "ui-text",
-        "z": "77739f07d1fee012",
-        "group": "5d2c8ad10fce93c9",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Bath Temp",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "x": 1150,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "0141e63a67abf376",
-        "type": "switch",
-        "z": "77739f07d1fee012",
-        "name": "",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "bathTemp",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "status",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "externalTemp",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "spFb",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "bathTempUnits",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 5,
-        "x": 810,
-        "y": 280,
-        "wires": [
-            [
-                "c7096e8e941dac22"
-            ],
-            [
-                "f47241f7f4256dc1"
-            ],
-            [
-                "b19958c27227be6e"
-            ],
-            [
-                "c73c602175a1fd47"
-            ],
-            [
-                "c239ebc99cd350e6"
-            ]
-        ]
-    },
-    {
-        "id": "f47241f7f4256dc1",
-        "type": "ui-text",
-        "z": "77739f07d1fee012",
-        "group": "5d2c8ad10fce93c9",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Status",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "x": 1130,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "b19958c27227be6e",
-        "type": "ui-text",
-        "z": "77739f07d1fee012",
-        "group": "5d2c8ad10fce93c9",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "External Temp",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "x": 1160,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "c73c602175a1fd47",
-        "type": "ui-text",
-        "z": "77739f07d1fee012",
-        "group": "5d2c8ad10fce93c9",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Setpoint Feedback",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "x": 1170,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "00a03e5447dc9573",
-        "type": "ui-text",
-        "z": "77739f07d1fee012",
-        "group": "5d2c8ad10fce93c9",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Bath Temp Units",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "x": 1160,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "8e5d27ba163bb935",
-        "type": "inject",
-        "z": "77739f07d1fee012",
-        "name": "Selected SP",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "selectedSP",
-        "payload": "IN_MODE_01",
-        "payloadType": "str",
-        "x": 250,
-        "y": 480,
-        "wires": [
-            [
-                "2127492e50451c2d"
-            ]
-        ]
-    },
-    {
-        "id": "686e4936582016ce",
-        "type": "ui-button",
-        "z": "77739f07d1fee012",
-        "group": "5d2c8ad10fce93c9",
-        "name": "",
-        "label": "Start",
-        "order": 8,
-        "width": 1,
-        "height": 0,
-        "emulateClick": true,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "OUT_MODE_05 1",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "",
-        "textColor": "",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
+        "topic": "ns=1;s=TestAddVariable2;datatype=Float",
+        "payload": "2.3",
+        "payloadType": "num",
         "x": 290,
-        "y": 760,
+        "y": 360,
         "wires": [
             [
-                "3202b71f566061ee"
+                "341c3f2e2b090047"
             ]
         ]
     },
     {
-        "id": "c90b838b8c21fd29",
-        "type": "ui-button",
-        "z": "77739f07d1fee012",
-        "group": "5d2c8ad10fce93c9",
-        "name": "",
-        "label": "Stop",
-        "order": 10,
-        "width": 1,
-        "height": 0,
-        "emulateClick": true,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "OUT_MODE_05 0",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "",
-        "textColor": "",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 290,
-        "y": 840,
-        "wires": [
-            [
-                "3202b71f566061ee"
-            ]
-        ]
-    },
-    {
-        "id": "fda15a43f350b9cd",
-        "type": "ui-number-input",
-        "z": "77739f07d1fee012",
-        "d": true,
-        "group": "5d2c8ad10fce93c9",
-        "name": "Temp SP",
-        "label": "Temp SP",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "topic": "topic",
-        "topicType": "msg",
-        "min": 0,
-        "max": "100",
-        "step": 1,
-        "tooltip": "",
-        "passthru": true,
-        "sendOnBlur": true,
-        "sendOnEnter": true,
-        "className": "",
-        "clearable": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "spinner": "default",
-        "x": 300,
-        "y": 700,
-        "wires": [
-            [
-                "7d104780cebe2620"
-            ]
-        ]
-    },
-    {
-        "id": "7d104780cebe2620",
-        "type": "function",
-        "z": "77739f07d1fee012",
-        "name": "Temp SP Concatenate",
-        "func": "var SPin = msg.payload\nmsg.payload = \"OUT_SP_00 \" + SPin  \nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 700,
-        "wires": [
-            [
-                "7dfbb887d7de8e64"
-            ]
-        ]
-    },
-    {
-        "id": "d2daace11062a54e",
+        "id": "11d9fbf5.027ab4",
         "type": "inject",
-        "z": "77739f07d1fee012",
-        "name": "",
+        "z": "b4792f36.7b37e",
+        "name": "TestAddVariable1",
         "props": [
             {
                 "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
             }
         ],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "",
-        "payload": "27",
-        "payloadType": "str",
-        "x": 630,
-        "y": 440,
+        "topic": "ns=1;s=TestAddVariable1;datatype=Float",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 360,
+        "y": 40,
         "wires": [
             []
         ]
     },
     {
-        "id": "7dfbb887d7de8e64",
+        "id": "a0cff67c.ed12d8",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "AddVariable",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"opcuaCommand\":\"addVariable\"}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "ns=1;s=TestAddVariable2;datatype=Float",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=TestAddVariable2;datatype=Float",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 350,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c9d8f5da.7c4d48",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "AddFolder",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=TestAddFolder",
+        "payload": "{\"opcuaCommand\":\"addFolder\"}",
+        "payloadType": "json",
+        "x": 340,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7c267cc5.2bd7c4",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "SetFolder",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=TestAddFolder",
+        "payload": "{\"opcuaCommand\":\"setFolder\"}",
+        "payloadType": "json",
+        "x": 340,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fc451b2b.c44f78",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "ADD TestTrend with init value 2.3",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=TestTrend;datatype=Float;value=2.3",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1a28d476.c9f36c",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "InstallHistorian",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=TestTrend;datatype=Float",
+        "payload": "{\"opcuaCommand\":\"installHistorian\"}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "88d21f70.acd4",
         "type": "debug",
-        "z": "77739f07d1fee012",
-        "name": "SP Debug",
+        "z": "b4792f36.7b37e",
+        "name": "",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -856,104 +414,610 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 790,
-        "y": 700,
+        "x": 1070,
+        "y": 40,
         "wires": []
     },
     {
-        "id": "68466be6a916ccc8",
-        "type": "ui-form",
-        "z": "77739f07d1fee012",
-        "name": "sp form",
-        "group": "5d2c8ad10fce93c9",
-        "label": "",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "options": [
+        "id": "6d396647.df2e98",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "AddFolder (ns=5)",
+        "props": [
             {
-                "label": "Temp SP",
-                "key": "SP",
-                "type": "text",
-                "required": true,
-                "rows": null
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
             }
         ],
-        "formValue": {
-            "SP": ""
-        },
-        "payload": "",
-        "submit": "submit",
-        "cancel": "clear",
-        "resetOnSubmit": true,
-        "topic": "topic",
-        "topicType": "msg",
-        "splitLayout": "",
-        "className": "",
-        "passthru": false,
-        "dropdownOptions": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=5;s=TestAddFolder",
+        "payload": "{\"opcuaCommand\":\"addFolder\"}",
+        "payloadType": "json",
         "x": 300,
-        "y": 640,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7635b266.fa1c8c",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "Register Namespace",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "www.test.com",
+        "payload": "{\"opcuaCommand\":\"registerNamespace\"}",
+        "payloadType": "json",
+        "x": 320,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b5a4ee65.8d2",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "TestAddVariable1 (ns=5)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=5;s=TestAddVariable1;datatype=Float",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 330,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bf91c51c.a9a3b8",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "DiscreteAlarm",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"opcuaCommand\":\"installDiscreteAlarm\"}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "ns=1;s=TestAddVariable1;datatype=Float",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=TestAddVariable1;datatype=Float",
+        "payload": "{\"opcuaCommand\":\"installDiscreteAlarm\"}",
+        "payloadType": "json",
+        "x": 290,
+        "y": 580,
         "wires": [
             [
-                "9f2ae245a438cff3",
-                "b7764b5f890ad33c"
+                "394b5110.24d50e"
             ]
         ]
     },
     {
-        "id": "1f0c8c6d62c08c54",
-        "type": "debug",
-        "z": "77739f07d1fee012",
-        "name": "form debug",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 770,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "9f2ae245a438cff3",
-        "type": "debug",
-        "z": "77739f07d1fee012",
-        "name": "form out",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 480,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "b7764b5f890ad33c",
+        "id": "394b5110.24d50e",
         "type": "function",
-        "z": "77739f07d1fee012",
-        "name": "function 1",
-        "func": "var SPin = msg.payload.SP;\nmsg.payload = \"OUT_SP_00 \" + SPin  \nreturn msg;",
+        "z": "b4792f36.7b37e",
+        "name": "Alarm parameters",
+        "func": "msg.priority = 500;\nmsg.alarmText = \"New alarm\";\n\nreturn msg;",
         "outputs": 1,
-        "timeout": 0,
+        "noerr": 0,
+        "x": 510,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "930e2e83.1cccd",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "LimitAlarm",
+        "props": [
+            {
+                "p": "payload",
+                "v": "{\"opcuaCommand\":\"installLimitAlarm\"}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "v": "ns=1;s=TestAddVariable1;datatype=Float",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=TestAddVariable1;datatype=Float",
+        "payload": "{\"opcuaCommand\":\"installLimitAlarm\"}",
+        "payloadType": "json",
+        "x": 280,
+        "y": 620,
+        "wires": [
+            [
+                "7a2ebbea.8ca284"
+            ]
+        ]
+    },
+    {
+        "id": "7a2ebbea.8ca284",
+        "type": "function",
+        "z": "b4792f36.7b37e",
+        "name": "Limit parameters",
+        "func": "// Limits\nmsg.hh = 10.0;\nmsg.h = 9.0;\nmsg.l = 1.0;\nmsg.ll = 0.1;\nmsg.priority=500;\nmsg.alarmText=\"Node-red limit alarm\";\nreturn msg;",
+        "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
-        "y": 640,
+        "x": 510,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "598af9d9.76baf8",
+        "type": "OpcUa-Client",
+        "z": "b4792f36.7b37e",
+        "endpoint": "0c7cfe180c3dd028",
+        "action": "history",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": "",
+        "maxMessageSize": "",
+        "receiveBufferSize": "",
+        "sendBufferSize": "",
+        "name": "Client for LocalServer",
+        "x": 1480,
+        "y": 340,
         "wires": [
             [
-                "1f0c8c6d62c08c54",
-                "3202b71f566061ee"
+                "d0171bdc.65e588"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "fee43798.36af38",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "Read history values",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 830,
+        "y": 340,
+        "wires": [
+            [
+                "7357a90f.2086b8"
             ]
+        ]
+    },
+    {
+        "id": "7357a90f.2086b8",
+        "type": "function",
+        "z": "b4792f36.7b37e",
+        "name": "Read history parameters",
+        "func": "msg.topic=\"ns=1;s=TestTrend\";\nmsg.aggregate=\"raw\";\nmsg.end = Date.now() + (2 * 60 * 60); // GMT + 2h\nmsg.start = 1638132240000; //  msg.end - (6 * 60 * 60); // 10 min\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 340,
+        "wires": [
+            [
+                "598af9d9.76baf8"
+            ]
+        ]
+    },
+    {
+        "id": "d0171bdc.65e588",
+        "type": "debug",
+        "z": "b4792f36.7b37e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1710,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "555a9045.67e46",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "Read history min",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 820,
+        "y": 400,
+        "wires": [
+            [
+                "e2e73b4f.e06f58"
+            ]
+        ]
+    },
+    {
+        "id": "e2e73b4f.e06f58",
+        "type": "function",
+        "z": "b4792f36.7b37e",
+        "name": "Read history parameters",
+        "func": "msg.topic=\"ns=1;s=TestTrend\";\nmsg.aggregate=\"min\";\nmsg.end = Date.now() + (2 * 60 * 60); // GMT + 2h\nmsg.start = 1638132240000; //  msg.end - (6 * 60 * 60); // 10 min\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 400,
+        "wires": [
+            [
+                "598af9d9.76baf8"
+            ]
+        ]
+    },
+    {
+        "id": "7f190d30.3d7dc4",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "Read history max",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 820,
+        "y": 460,
+        "wires": [
+            [
+                "857853f.6226cb"
+            ]
+        ]
+    },
+    {
+        "id": "857853f.6226cb",
+        "type": "function",
+        "z": "b4792f36.7b37e",
+        "name": "Read history parameters",
+        "func": "msg.topic=\"ns=1;s=TestTrend\";\nmsg.aggregate=\"max\";\nmsg.end = Date.now() + (2 * 60 * 60); // GMT + 2h\nmsg.start = 1638132240000; //  msg.end - (6 * 60 * 60); // 10 min\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 460,
+        "wires": [
+            [
+                "598af9d9.76baf8"
+            ]
+        ]
+    },
+    {
+        "id": "2d708cc4.543dd4",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "Read history ave",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 820,
+        "y": 520,
+        "wires": [
+            [
+                "cc1bd491.ccf018"
+            ]
+        ]
+    },
+    {
+        "id": "cc1bd491.ccf018",
+        "type": "function",
+        "z": "b4792f36.7b37e",
+        "name": "Read history parameters",
+        "func": "msg.topic=\"ns=1;s=TestTrend\";\nmsg.aggregate=\"ave\";\nmsg.end = Date.now() + (2 * 60 * 60); // GMT + 2h\nmsg.start = 1638132240000; //  msg.end - (6 * 60 * 60); // 10 min\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 520,
+        "wires": [
+            [
+                "598af9d9.76baf8"
+            ]
+        ]
+    },
+    {
+        "id": "96a96e74.72ec",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "Read history interpolative",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 850,
+        "y": 580,
+        "wires": [
+            [
+                "ca022f7a.76cdf"
+            ]
+        ]
+    },
+    {
+        "id": "ca022f7a.76cdf",
+        "type": "function",
+        "z": "b4792f36.7b37e",
+        "name": "Read history parameters",
+        "func": "msg.topic=\"ns=1;s=TestTrend\";\nmsg.aggregate=\"interpolative\";\nmsg.end = Date.now() + (2 * 60 * 60); // GMT + 2h\nmsg.start = 1638132240000; //  msg.end - (6 * 60 * 60); // 10 min\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 580,
+        "wires": [
+            [
+                "598af9d9.76baf8"
+            ]
+        ]
+    },
+    {
+        "id": "3369c6e5.64934a",
+        "type": "function",
+        "z": "b4792f36.7b37e",
+        "name": "Read history 1h to now",
+        "func": "msg.topic=\"ns=1;s=TestTrend\";\nmsg.aggregate=\"raw\";\n// Default end time is now\n// Default start time is now - 1h\nmsg.numValuesPerNode = 10;\nmsg.returnBounds = false;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 300,
+        "wires": [
+            [
+                "598af9d9.76baf8"
+            ]
+        ]
+    },
+    {
+        "id": "8f29731c.4dc8a",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "Read history values",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 830,
+        "y": 300,
+        "wires": [
+            [
+                "3369c6e5.64934a"
+            ]
+        ]
+    },
+    {
+        "id": "0bf9b16e0a015983",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "AddVariable",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=TestObserver;datatype=Float",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cb8006ec5ef10910",
+        "type": "link out",
+        "z": "b4792f36.7b37e",
+        "name": "SERVER",
+        "mode": "link",
+        "links": [
+            "9980f42b9d5f6da3"
+        ],
+        "x": 815,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "9980f42b9d5f6da3",
+        "type": "link in",
+        "z": "b4792f36.7b37e",
+        "name": "SERVER",
+        "links": [
+            "cb8006ec5ef10910"
+        ],
+        "x": 595,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6446e30ac5237b82",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "AddFolder",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=Observer",
+        "payload": "{\"opcuaCommand\":\"addFolder\"}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4f663e4d768f8ccd",
+        "type": "comment",
+        "z": "b4792f36.7b37e",
+        "name": "Under TestVariable1",
+        "info": "Look Limit and State variables\nUaExpert Events drag and drop server\n\nAlso alarm objects are there\nExplore HighLimit\nChange LimitState over HighLimit\nYou will see Alarm and Event message on event view\n\nChange AlarmState to true",
+        "x": 280,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "270d4e73c8fa5866",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "SetFolder",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=TestAddFolder",
+        "payload": "{\"opcuaCommand\":\"setFolder\"}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 700,
+        "wires": [
+            [
+                "cb8006ec5ef10910"
+            ]
+        ]
+    },
+    {
+        "id": "4f10447ab151e8e1",
+        "type": "inject",
+        "z": "b4792f36.7b37e",
+        "name": "List namespaces",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"opcuaCommand\":\"getNamespaces\"}",
+        "payloadType": "json",
+        "x": 300,
+        "y": 500,
+        "wires": [
+            []
         ]
     }
 ]

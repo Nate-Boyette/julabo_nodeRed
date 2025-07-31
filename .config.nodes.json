@@ -1008,5 +1008,24 @@
                 "file": "/home/admin/.node-red/node_modules/node-red-contrib-string/string/string.js"
             }
         }
+    },
+    "node-red-contrib-opcua-server": {
+        "name": "node-red-contrib-opcua-server",
+        "version": "1.1.1",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "Compact-Server": {
+                "name": "Compact-Server",
+                "types": [
+                    "opcua-compact-server"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-opcua-server",
+                "file": "/home/admin/.node-red/node_modules/node-red-contrib-opcua-server/opcuaCompact/server-node.js"
+            }
+        }
     }
 }
