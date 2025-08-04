@@ -1027,5 +1027,24 @@
                 "file": "/home/admin/.node-red/node_modules/node-red-contrib-opcua-server/opcuaCompact/server-node.js"
             }
         }
+    },
+    "node-red-contrib-convert": {
+        "name": "node-red-contrib-convert",
+        "version": "1.0.5",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "sample": {
+                "name": "sample",
+                "types": [
+                    "convert"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-convert",
+                "file": "/home/admin/.node-red/node_modules/node-red-contrib-convert/convert/convert.js"
+            }
+        }
     }
 }

@@ -1,23 +1,24 @@
 [
     {
-        "id": "f32c6fbb9d3b3885",
+        "id": "77739f07d1fee012",
         "type": "tab",
-        "label": "Add Item",
+        "label": "Julabo",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "b4792f36.7b37e",
+        "id": "d2ce7379b0b9c720",
         "type": "tab",
-        "label": "NodeRed UA-Server",
+        "label": "Julabo OPCUA",
         "disabled": false,
-        "info": ""
+        "info": "",
+        "env": []
     },
     {
-        "id": "77739f07d1fee012",
+        "id": "11a578056fc3d56a",
         "type": "tab",
-        "label": "Julabo",
+        "label": "Flow 1",
         "disabled": false,
         "info": "",
         "env": []
@@ -144,1093 +145,34 @@
         "groupType": "default"
     },
     {
-        "id": "f31d6f644630ad06",
-        "type": "OpcUa-Server",
-        "z": "f32c6fbb9d3b3885",
-        "port": "4840",
-        "name": "",
-        "endpoint": "",
-        "users": "users.json",
-        "nodesetDir": "",
-        "autoAcceptUnknownCertificate": true,
-        "registerToDiscovery": false,
-        "constructDefaultAddressSpace": false,
-        "allowAnonymous": true,
-        "endpointNone": true,
-        "endpointSign": false,
-        "endpointSignEncrypt": false,
-        "endpointBasic128Rsa15": false,
-        "endpointBasic256": false,
-        "endpointBasic256Sha256": false,
-        "maxNodesPerBrowse": 0,
-        "maxNodesPerHistoryReadData": 0,
-        "maxNodesPerHistoryReadEvents": 0,
-        "maxNodesPerHistoryUpdateData": 0,
-        "maxNodesPerRead": 0,
-        "maxNodesPerWrite": 0,
-        "maxNodesPerMethodCall": 0,
-        "maxNodesPerRegisterNodes": 0,
-        "maxNodesPerNodeManagement": 0,
-        "maxMonitoredItemsPerCall": 0,
-        "maxNodesPerHistoryUpdateEvents": 0,
-        "maxNodesPerTranslateBrowsePathsToNodeIds": 0,
-        "maxConnectionsPerEndpoint": 20,
-        "maxMessageSize": 4096,
-        "maxBufferSize": 4096,
-        "maxSessions": 20,
-        "x": 800,
-        "y": 100,
-        "wires": [
-            []
-        ]
+        "id": "bb039652.dcf5a8",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://H7Q8Q13.vstage.co:53530/OPCUA/SimulationServer",
+        "secpol": "None",
+        "secmode": "None",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
     },
     {
-        "id": "4ef6764bc686e5de",
-        "type": "debug",
-        "z": "f32c6fbb9d3b3885",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 800,
-        "y": 180,
-        "wires": []
+        "id": "278a94148664a27b",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://localhost:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
     },
     {
-        "id": "9d54c0c8f4768b2a",
-        "type": "inject",
-        "z": "f32c6fbb9d3b3885",
-        "name": "AddFolder",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=3;s=TestAddFolder0",
-        "payload": "{\"opcuaCommand\":\"addFolder\"}",
-        "payloadType": "json",
-        "x": 540,
-        "y": 100,
-        "wires": [
-            [
-                "f31d6f644630ad06",
-                "4ef6764bc686e5de"
-            ]
-        ]
-    },
-    {
-        "id": "57ab927e159540aa",
-        "type": "inject",
-        "z": "f32c6fbb9d3b3885",
-        "name": "SetFolder",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=TestAddFolder",
-        "payload": "{\"opcuaCommand\":\"setFolder\"}",
-        "payloadType": "json",
-        "x": 540,
-        "y": 140,
-        "wires": [
-            [
-                "f31d6f644630ad06",
-                "4ef6764bc686e5de"
-            ]
-        ]
-    },
-    {
-        "id": "45836e0e7fea7fb2",
-        "type": "inject",
-        "z": "f32c6fbb9d3b3885",
-        "name": "AddVariable",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=TestAddVariable2;datatype=Float",
-        "payload": "{\"opcuaCommand\":\"addVariable\"}",
-        "payloadType": "json",
-        "x": 530,
-        "y": 220,
-        "wires": [
-            [
-                "f31d6f644630ad06",
-                "4ef6764bc686e5de"
-            ]
-        ]
-    },
-    {
-        "id": "341c3f2e2b090047",
-        "type": "OpcUa-Client",
-        "z": "f32c6fbb9d3b3885",
-        "endpoint": "0c7cfe180c3dd028",
-        "action": "write",
-        "deadbandtype": "a",
-        "deadbandvalue": 1,
-        "time": 10,
-        "timeUnit": "s",
-        "certificate": "n",
-        "localfile": "",
-        "localkeyfile": "",
-        "securitymode": "None",
-        "securitypolicy": "None",
-        "useTransport": false,
-        "maxChunkCount": 1,
-        "maxMessageSize": 8192,
-        "receiveBufferSize": 8192,
-        "sendBufferSize": 8192,
-        "setstatusandtime": false,
-        "keepsessionalive": false,
-        "name": "",
-        "x": 520,
-        "y": 360,
-        "wires": [
-            [
-                "f31d6f644630ad06"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "009cae5727865db9",
-        "type": "inject",
-        "z": "f32c6fbb9d3b3885",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=TestAddVariable2;datatype=Float",
-        "payload": "7",
-        "payloadType": "num",
-        "x": 290,
-        "y": 360,
-        "wires": [
-            [
-                "341c3f2e2b090047"
-            ]
-        ]
-    },
-    {
-        "id": "de0dcc79c33fc3fb",
-        "type": "OpcUa-Client",
-        "z": "f32c6fbb9d3b3885",
-        "endpoint": "0c7cfe180c3dd028",
-        "action": "read",
-        "deadbandtype": "a",
-        "deadbandvalue": 1,
-        "time": 10,
-        "timeUnit": "s",
-        "certificate": "n",
-        "localfile": "",
-        "localkeyfile": "",
-        "securitymode": "None",
-        "securitypolicy": "None",
-        "useTransport": false,
-        "maxChunkCount": 1,
-        "maxMessageSize": 8192,
-        "receiveBufferSize": 8192,
-        "sendBufferSize": 8192,
-        "setstatusandtime": false,
-        "keepsessionalive": false,
-        "name": "",
-        "x": 500,
-        "y": 480,
-        "wires": [
-            [
-                "f8945bd00ee6c4e5"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "f8945bd00ee6c4e5",
-        "type": "debug",
-        "z": "f32c6fbb9d3b3885",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 720,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "4f82d4d80377227b",
-        "type": "inject",
-        "z": "f32c6fbb9d3b3885",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=TestAddVariable2;datatype=Float",
-        "payload": "",
-        "payloadType": "str",
-        "x": 250,
-        "y": 480,
-        "wires": [
-            [
-                "de0dcc79c33fc3fb"
-            ]
-        ]
-    },
-    {
-        "id": "11d9fbf5.027ab4",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "TestAddVariable1",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=TestAddVariable1;datatype=Float",
-        "payload": "{\"opcuaCommand\":\"addVariable\"}",
-        "payloadType": "json",
-        "x": 360,
-        "y": 40,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a0cff67c.ed12d8",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "AddVariable",
-        "props": [
-            {
-                "p": "payload",
-                "v": "{\"opcuaCommand\":\"addVariable\"}",
-                "vt": "json"
-            },
-            {
-                "p": "topic",
-                "v": "ns=1;s=TestAddVariable2;datatype=Float",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=TestAddVariable2;datatype=Float",
-        "payload": "{\"opcuaCommand\":\"addVariable\"}",
-        "payloadType": "json",
-        "x": 350,
-        "y": 120,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c9d8f5da.7c4d48",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "AddFolder",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=TestAddFolder",
-        "payload": "{\"opcuaCommand\":\"addFolder\"}",
-        "payloadType": "json",
-        "x": 340,
-        "y": 80,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "7c267cc5.2bd7c4",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "SetFolder",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=TestAddFolder",
-        "payload": "{\"opcuaCommand\":\"setFolder\"}",
-        "payloadType": "json",
-        "x": 340,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "fc451b2b.c44f78",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "ADD TestTrend with init value 2.3",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=TestTrend;datatype=Float;value=2.3",
-        "payload": "{\"opcuaCommand\":\"addVariable\"}",
-        "payloadType": "json",
-        "x": 250,
-        "y": 220,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1a28d476.c9f36c",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "InstallHistorian",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=TestTrend;datatype=Float",
-        "payload": "{\"opcuaCommand\":\"installHistorian\"}",
-        "payloadType": "json",
-        "x": 200,
-        "y": 260,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "88d21f70.acd4",
-        "type": "debug",
-        "z": "b4792f36.7b37e",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1070,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "6d396647.df2e98",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "AddFolder (ns=5)",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=5;s=TestAddFolder",
-        "payload": "{\"opcuaCommand\":\"addFolder\"}",
-        "payloadType": "json",
-        "x": 300,
-        "y": 420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "7635b266.fa1c8c",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "Register Namespace",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "www.test.com",
-        "payload": "{\"opcuaCommand\":\"registerNamespace\"}",
-        "payloadType": "json",
-        "x": 320,
-        "y": 380,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b5a4ee65.8d2",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "TestAddVariable1 (ns=5)",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=5;s=TestAddVariable1;datatype=Float",
-        "payload": "{\"opcuaCommand\":\"addVariable\"}",
-        "payloadType": "json",
-        "x": 330,
-        "y": 460,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "bf91c51c.a9a3b8",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "DiscreteAlarm",
-        "props": [
-            {
-                "p": "payload",
-                "v": "{\"opcuaCommand\":\"installDiscreteAlarm\"}",
-                "vt": "json"
-            },
-            {
-                "p": "topic",
-                "v": "ns=1;s=TestAddVariable1;datatype=Float",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=TestAddVariable1;datatype=Float",
-        "payload": "{\"opcuaCommand\":\"installDiscreteAlarm\"}",
-        "payloadType": "json",
-        "x": 290,
-        "y": 580,
-        "wires": [
-            [
-                "394b5110.24d50e"
-            ]
-        ]
-    },
-    {
-        "id": "394b5110.24d50e",
-        "type": "function",
-        "z": "b4792f36.7b37e",
-        "name": "Alarm parameters",
-        "func": "msg.priority = 500;\nmsg.alarmText = \"New alarm\";\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 510,
-        "y": 580,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "930e2e83.1cccd",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "LimitAlarm",
-        "props": [
-            {
-                "p": "payload",
-                "v": "{\"opcuaCommand\":\"installLimitAlarm\"}",
-                "vt": "json"
-            },
-            {
-                "p": "topic",
-                "v": "ns=1;s=TestAddVariable1;datatype=Float",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=TestAddVariable1;datatype=Float",
-        "payload": "{\"opcuaCommand\":\"installLimitAlarm\"}",
-        "payloadType": "json",
-        "x": 280,
-        "y": 620,
-        "wires": [
-            [
-                "7a2ebbea.8ca284"
-            ]
-        ]
-    },
-    {
-        "id": "7a2ebbea.8ca284",
-        "type": "function",
-        "z": "b4792f36.7b37e",
-        "name": "Limit parameters",
-        "func": "// Limits\nmsg.hh = 10.0;\nmsg.h = 9.0;\nmsg.l = 1.0;\nmsg.ll = 0.1;\nmsg.priority=500;\nmsg.alarmText=\"Node-red limit alarm\";\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 620,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "598af9d9.76baf8",
-        "type": "OpcUa-Client",
-        "z": "b4792f36.7b37e",
-        "endpoint": "0c7cfe180c3dd028",
-        "action": "history",
-        "deadbandtype": "a",
-        "deadbandvalue": 1,
-        "time": 10,
-        "timeUnit": "s",
-        "certificate": "n",
-        "localfile": "",
-        "localkeyfile": "",
-        "securitymode": "None",
-        "securitypolicy": "None",
-        "useTransport": false,
-        "maxChunkCount": "",
-        "maxMessageSize": "",
-        "receiveBufferSize": "",
-        "sendBufferSize": "",
-        "name": "Client for LocalServer",
-        "x": 1480,
-        "y": 340,
-        "wires": [
-            [
-                "d0171bdc.65e588"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "fee43798.36af38",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "Read history values",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 830,
-        "y": 340,
-        "wires": [
-            [
-                "7357a90f.2086b8"
-            ]
-        ]
-    },
-    {
-        "id": "7357a90f.2086b8",
-        "type": "function",
-        "z": "b4792f36.7b37e",
-        "name": "Read history parameters",
-        "func": "msg.topic=\"ns=1;s=TestTrend\";\nmsg.aggregate=\"raw\";\nmsg.end = Date.now() + (2 * 60 * 60); // GMT + 2h\nmsg.start = 1638132240000; //  msg.end - (6 * 60 * 60); // 10 min\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1110,
-        "y": 340,
-        "wires": [
-            [
-                "598af9d9.76baf8"
-            ]
-        ]
-    },
-    {
-        "id": "d0171bdc.65e588",
-        "type": "debug",
-        "z": "b4792f36.7b37e",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 1710,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "555a9045.67e46",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "Read history min",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 820,
-        "y": 400,
-        "wires": [
-            [
-                "e2e73b4f.e06f58"
-            ]
-        ]
-    },
-    {
-        "id": "e2e73b4f.e06f58",
-        "type": "function",
-        "z": "b4792f36.7b37e",
-        "name": "Read history parameters",
-        "func": "msg.topic=\"ns=1;s=TestTrend\";\nmsg.aggregate=\"min\";\nmsg.end = Date.now() + (2 * 60 * 60); // GMT + 2h\nmsg.start = 1638132240000; //  msg.end - (6 * 60 * 60); // 10 min\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1110,
-        "y": 400,
-        "wires": [
-            [
-                "598af9d9.76baf8"
-            ]
-        ]
-    },
-    {
-        "id": "7f190d30.3d7dc4",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "Read history max",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 820,
-        "y": 460,
-        "wires": [
-            [
-                "857853f.6226cb"
-            ]
-        ]
-    },
-    {
-        "id": "857853f.6226cb",
-        "type": "function",
-        "z": "b4792f36.7b37e",
-        "name": "Read history parameters",
-        "func": "msg.topic=\"ns=1;s=TestTrend\";\nmsg.aggregate=\"max\";\nmsg.end = Date.now() + (2 * 60 * 60); // GMT + 2h\nmsg.start = 1638132240000; //  msg.end - (6 * 60 * 60); // 10 min\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1110,
-        "y": 460,
-        "wires": [
-            [
-                "598af9d9.76baf8"
-            ]
-        ]
-    },
-    {
-        "id": "2d708cc4.543dd4",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "Read history ave",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 820,
-        "y": 520,
-        "wires": [
-            [
-                "cc1bd491.ccf018"
-            ]
-        ]
-    },
-    {
-        "id": "cc1bd491.ccf018",
-        "type": "function",
-        "z": "b4792f36.7b37e",
-        "name": "Read history parameters",
-        "func": "msg.topic=\"ns=1;s=TestTrend\";\nmsg.aggregate=\"ave\";\nmsg.end = Date.now() + (2 * 60 * 60); // GMT + 2h\nmsg.start = 1638132240000; //  msg.end - (6 * 60 * 60); // 10 min\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1110,
-        "y": 520,
-        "wires": [
-            [
-                "598af9d9.76baf8"
-            ]
-        ]
-    },
-    {
-        "id": "96a96e74.72ec",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "Read history interpolative",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 850,
-        "y": 580,
-        "wires": [
-            [
-                "ca022f7a.76cdf"
-            ]
-        ]
-    },
-    {
-        "id": "ca022f7a.76cdf",
-        "type": "function",
-        "z": "b4792f36.7b37e",
-        "name": "Read history parameters",
-        "func": "msg.topic=\"ns=1;s=TestTrend\";\nmsg.aggregate=\"interpolative\";\nmsg.end = Date.now() + (2 * 60 * 60); // GMT + 2h\nmsg.start = 1638132240000; //  msg.end - (6 * 60 * 60); // 10 min\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1110,
-        "y": 580,
-        "wires": [
-            [
-                "598af9d9.76baf8"
-            ]
-        ]
-    },
-    {
-        "id": "3369c6e5.64934a",
-        "type": "function",
-        "z": "b4792f36.7b37e",
-        "name": "Read history 1h to now",
-        "func": "msg.topic=\"ns=1;s=TestTrend\";\nmsg.aggregate=\"raw\";\n// Default end time is now\n// Default start time is now - 1h\nmsg.numValuesPerNode = 10;\nmsg.returnBounds = false;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1100,
-        "y": 300,
-        "wires": [
-            [
-                "598af9d9.76baf8"
-            ]
-        ]
-    },
-    {
-        "id": "8f29731c.4dc8a",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "Read history values",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 830,
-        "y": 300,
-        "wires": [
-            [
-                "3369c6e5.64934a"
-            ]
-        ]
-    },
-    {
-        "id": "0bf9b16e0a015983",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "AddVariable",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=TestObserver;datatype=Float",
-        "payload": "{\"opcuaCommand\":\"addVariable\"}",
-        "payloadType": "json",
-        "x": 190,
-        "y": 780,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "cb8006ec5ef10910",
-        "type": "link out",
-        "z": "b4792f36.7b37e",
-        "name": "SERVER",
-        "mode": "link",
-        "links": [
-            "9980f42b9d5f6da3"
-        ],
-        "x": 815,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "9980f42b9d5f6da3",
-        "type": "link in",
-        "z": "b4792f36.7b37e",
-        "name": "SERVER",
-        "links": [
-            "cb8006ec5ef10910"
-        ],
-        "x": 595,
-        "y": 20,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6446e30ac5237b82",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "AddFolder",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=Observer",
-        "payload": "{\"opcuaCommand\":\"addFolder\"}",
-        "payloadType": "json",
-        "x": 180,
-        "y": 740,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "4f663e4d768f8ccd",
-        "type": "comment",
-        "z": "b4792f36.7b37e",
-        "name": "Under TestVariable1",
-        "info": "Look Limit and State variables\nUaExpert Events drag and drop server\n\nAlso alarm objects are there\nExplore HighLimit\nChange LimitState over HighLimit\nYou will see Alarm and Event message on event view\n\nChange AlarmState to true",
-        "x": 280,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "270d4e73c8fa5866",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "SetFolder",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "ns=1;s=TestAddFolder",
-        "payload": "{\"opcuaCommand\":\"setFolder\"}",
-        "payloadType": "json",
-        "x": 180,
-        "y": 700,
-        "wires": [
-            [
-                "cb8006ec5ef10910"
-            ]
-        ]
-    },
-    {
-        "id": "4f10447ab151e8e1",
-        "type": "inject",
-        "z": "b4792f36.7b37e",
-        "name": "List namespaces",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"opcuaCommand\":\"getNamespaces\"}",
-        "payloadType": "json",
-        "x": 300,
-        "y": 500,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "fc4828b3c9dedc62",
-        "type": "debug",
-        "z": "77739f07d1fee012",
-        "name": "Output Message",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 800,
-        "y": 100,
-        "wires": []
+        "id": "7290d8b0.f713d8",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://localhost:62544/Quickstarts/AlarmConditionServer",
+        "login": false
     },
     {
         "id": "2127492e50451c2d",
@@ -1243,7 +185,7 @@
         "wires": [
             [
                 "0141e63a67abf376",
-                "fc4828b3c9dedc62"
+                "5908ccb692831d25"
             ]
         ]
     },
@@ -1543,7 +485,8 @@
         "y": 340,
         "wires": [
             [
-                "00a03e5447dc9573"
+                "00a03e5447dc9573",
+                "dd4f500e354eb3df"
             ]
         ]
     },
@@ -1610,16 +553,20 @@
         "y": 280,
         "wires": [
             [
-                "c7096e8e941dac22"
+                "c7096e8e941dac22",
+                "e3094a8fd6430774"
             ],
             [
-                "f47241f7f4256dc1"
+                "f47241f7f4256dc1",
+                "32ce431112857992"
             ],
             [
-                "b19958c27227be6e"
+                "b19958c27227be6e",
+                "dd4c9ce2f38c2cff"
             ],
             [
-                "c73c602175a1fd47"
+                "c73c602175a1fd47",
+                "9c4e6c594c080f04"
             ],
             [
                 "c239ebc99cd350e6"
@@ -1915,6 +862,1392 @@
         "statusType": "auto",
         "x": 790,
         "y": 700,
+        "wires": []
+    },
+    {
+        "id": "e3094a8fd6430774",
+        "type": "link out",
+        "z": "77739f07d1fee012",
+        "name": "Bath Temp",
+        "mode": "link",
+        "links": [
+            "3612154f23d5d54d"
+        ],
+        "x": 1245,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "32ce431112857992",
+        "type": "link out",
+        "z": "77739f07d1fee012",
+        "name": "Status",
+        "mode": "link",
+        "links": [
+            "ec4f8eea18d5e764"
+        ],
+        "x": 1205,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "dd4c9ce2f38c2cff",
+        "type": "link out",
+        "z": "77739f07d1fee012",
+        "name": "External Temp",
+        "mode": "link",
+        "links": [
+            "e2e75b601ec85308"
+        ],
+        "x": 1265,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "9c4e6c594c080f04",
+        "type": "link out",
+        "z": "77739f07d1fee012",
+        "name": "SP Feedback",
+        "mode": "link",
+        "links": [
+            "c7a89e403f0f002f"
+        ],
+        "x": 1285,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "dd4f500e354eb3df",
+        "type": "link out",
+        "z": "77739f07d1fee012",
+        "name": "Bath Temp Units",
+        "mode": "link",
+        "links": [
+            "c02c62c009767290"
+        ],
+        "x": 1275,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "5908ccb692831d25",
+        "type": "debug",
+        "z": "77739f07d1fee012",
+        "name": "rs232",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "3612154f23d5d54d",
+        "type": "link in",
+        "z": "d2ce7379b0b9c720",
+        "name": "link in 2",
+        "links": [
+            "e3094a8fd6430774"
+        ],
+        "x": 65,
+        "y": 80,
+        "wires": [
+            [
+                "ff3f207a6bb8a1a7"
+            ]
+        ]
+    },
+    {
+        "id": "ec4f8eea18d5e764",
+        "type": "link in",
+        "z": "d2ce7379b0b9c720",
+        "name": "link in 3",
+        "links": [
+            "32ce431112857992"
+        ],
+        "x": 65,
+        "y": 160,
+        "wires": [
+            [
+                "3a8adfa94134c3f8"
+            ]
+        ]
+    },
+    {
+        "id": "e2e75b601ec85308",
+        "type": "link in",
+        "z": "d2ce7379b0b9c720",
+        "name": "link in 4",
+        "links": [
+            "dd4c9ce2f38c2cff"
+        ],
+        "x": 65,
+        "y": 240,
+        "wires": [
+            [
+                "6c484d50efc98068"
+            ]
+        ]
+    },
+    {
+        "id": "c7a89e403f0f002f",
+        "type": "link in",
+        "z": "d2ce7379b0b9c720",
+        "name": "link in 5",
+        "links": [
+            "9c4e6c594c080f04"
+        ],
+        "x": 65,
+        "y": 320,
+        "wires": [
+            [
+                "0f9076d4a244db8d"
+            ]
+        ]
+    },
+    {
+        "id": "c02c62c009767290",
+        "type": "link in",
+        "z": "d2ce7379b0b9c720",
+        "name": "link in 6",
+        "links": [
+            "dd4f500e354eb3df"
+        ],
+        "x": 65,
+        "y": 400,
+        "wires": [
+            [
+                "3bd0c298a178d07c"
+            ]
+        ]
+    },
+    {
+        "id": "5f03a79fee9f0ab0",
+        "type": "debug",
+        "z": "d2ce7379b0b9c720",
+        "name": "Bath Temp Link",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "23129e872276b04d",
+        "type": "debug",
+        "z": "d2ce7379b0b9c720",
+        "name": "Status Link",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "9afad92f01486308",
+        "type": "debug",
+        "z": "d2ce7379b0b9c720",
+        "name": "External Temp Link",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "b0304b8e9a4d9b07",
+        "type": "debug",
+        "z": "d2ce7379b0b9c720",
+        "name": "SP Feedback Link",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "c0f116d9fdc5b8b4",
+        "type": "debug",
+        "z": "d2ce7379b0b9c720",
+        "name": "Bath Temp Units Link",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "efa7f9952d0aac5f",
+        "type": "OpcUa-Server",
+        "z": "d2ce7379b0b9c720",
+        "port": "4840",
+        "name": "julaboServer",
+        "endpoint": "",
+        "users": "users.json",
+        "nodesetDir": "",
+        "autoAcceptUnknownCertificate": true,
+        "registerToDiscovery": false,
+        "constructDefaultAddressSpace": true,
+        "allowAnonymous": true,
+        "endpointNone": true,
+        "endpointSign": true,
+        "endpointSignEncrypt": true,
+        "endpointBasic128Rsa15": true,
+        "endpointBasic256": true,
+        "endpointBasic256Sha256": true,
+        "maxNodesPerBrowse": 0,
+        "maxNodesPerHistoryReadData": 0,
+        "maxNodesPerHistoryReadEvents": 0,
+        "maxNodesPerHistoryUpdateData": 0,
+        "maxNodesPerRead": 0,
+        "maxNodesPerWrite": 0,
+        "maxNodesPerMethodCall": 0,
+        "maxNodesPerRegisterNodes": 0,
+        "maxNodesPerNodeManagement": 0,
+        "maxMonitoredItemsPerCall": 0,
+        "maxNodesPerHistoryUpdateEvents": 0,
+        "maxNodesPerTranslateBrowsePathsToNodeIds": 0,
+        "maxConnectionsPerEndpoint": 20,
+        "maxMessageSize": 4096,
+        "maxBufferSize": 4096,
+        "maxSessions": 20,
+        "x": 1190,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7c8816c1f10680f0",
+        "type": "inject",
+        "z": "d2ce7379b0b9c720",
+        "name": "Create Julabo Folder",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "3",
+        "topic": "ns=3;s=Julabo",
+        "payload": "{\"opcuaCommand\":\"addFolder\"}",
+        "payloadType": "json",
+        "x": 940,
+        "y": 40,
+        "wires": [
+            [
+                "efa7f9952d0aac5f"
+            ]
+        ]
+    },
+    {
+        "id": "d859c4df25dc7cd0",
+        "type": "inject",
+        "z": "d2ce7379b0b9c720",
+        "name": "add bathTemp",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "4",
+        "topic": "ns=1;s=Julabo.bathTemp;datatype=Float",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 920,
+        "y": 80,
+        "wires": [
+            [
+                "efa7f9952d0aac5f"
+            ]
+        ]
+    },
+    {
+        "id": "51587ef96decde51",
+        "type": "inject",
+        "z": "d2ce7379b0b9c720",
+        "name": "Add status",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "4.1",
+        "topic": "ns=1;s=Julabo.status;datatype=Int32",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 910,
+        "y": 120,
+        "wires": [
+            [
+                "efa7f9952d0aac5f"
+            ]
+        ]
+    },
+    {
+        "id": "720ae501dd316772",
+        "type": "inject",
+        "z": "d2ce7379b0b9c720",
+        "name": "Add externalTemp",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "4.2",
+        "topic": "ns=1;s=Julabo.externalTemp;datatype=Float",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 930,
+        "y": 160,
+        "wires": [
+            [
+                "efa7f9952d0aac5f"
+            ]
+        ]
+    },
+    {
+        "id": "2110d28030261404",
+        "type": "inject",
+        "z": "d2ce7379b0b9c720",
+        "name": "Add spFeedback",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "4.3",
+        "topic": "ns=1;s=Julabo.spFeedback;datatype=Float",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 930,
+        "y": 200,
+        "wires": [
+            [
+                "efa7f9952d0aac5f"
+            ]
+        ]
+    },
+    {
+        "id": "7a222573dc4224b6",
+        "type": "inject",
+        "z": "d2ce7379b0b9c720",
+        "name": "Add bathTempUnits",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "4.4",
+        "topic": "ns=1;s=Julabo.bathTempUnits;datatype=String",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 940,
+        "y": 240,
+        "wires": [
+            [
+                "efa7f9952d0aac5f"
+            ]
+        ]
+    },
+    {
+        "id": "1c1d1b534f8f8974",
+        "type": "OpcUa-Item",
+        "z": "d2ce7379b0b9c720",
+        "item": "ns=1;s=Julabo.bathTemp",
+        "datatype": "Float",
+        "value": "",
+        "name": "Bath Temp",
+        "x": 410,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a8cdc89ba60274be",
+        "type": "OpcUa-Item",
+        "z": "d2ce7379b0b9c720",
+        "item": "ns=1;s=Julabo.status;datatype=Int32",
+        "datatype": "Int32",
+        "value": "",
+        "name": "Status",
+        "x": 370,
+        "y": 160,
+        "wires": [
+            [
+                "23129e872276b04d"
+            ]
+        ]
+    },
+    {
+        "id": "593032a922967b86",
+        "type": "OpcUa-Item",
+        "z": "d2ce7379b0b9c720",
+        "item": "ns=1;s=Julabo.externalTemp;datatype=Float",
+        "datatype": "Float",
+        "value": "",
+        "name": "External Temp",
+        "x": 380,
+        "y": 240,
+        "wires": [
+            [
+                "9afad92f01486308"
+            ]
+        ]
+    },
+    {
+        "id": "229816954901d362",
+        "type": "OpcUa-Item",
+        "z": "d2ce7379b0b9c720",
+        "item": "ns=1;s=Julabo.spFeedback;datatype=Float",
+        "datatype": "Float",
+        "value": "",
+        "name": "SP Feedback",
+        "x": 380,
+        "y": 320,
+        "wires": [
+            [
+                "b0304b8e9a4d9b07"
+            ]
+        ]
+    },
+    {
+        "id": "3bd0c298a178d07c",
+        "type": "OpcUa-Item",
+        "z": "d2ce7379b0b9c720",
+        "item": "ns=1;s=Julabo.bathTempUnits;datatype=String",
+        "datatype": "String",
+        "value": "",
+        "name": "Bath Temp Units",
+        "x": 380,
+        "y": 400,
+        "wires": [
+            [
+                "c0f116d9fdc5b8b4"
+            ]
+        ]
+    },
+    {
+        "id": "ff3f207a6bb8a1a7",
+        "type": "convert",
+        "z": "d2ce7379b0b9c720",
+        "name": "",
+        "convertTo": "number",
+        "x": 190,
+        "y": 80,
+        "wires": [
+            [
+                "1c1d1b534f8f8974",
+                "729af7cacc28d918",
+                "3db9b2c70a88bb1c"
+            ]
+        ]
+    },
+    {
+        "id": "6c484d50efc98068",
+        "type": "convert",
+        "z": "d2ce7379b0b9c720",
+        "name": "",
+        "convertTo": "number",
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "593032a922967b86"
+            ]
+        ]
+    },
+    {
+        "id": "0f9076d4a244db8d",
+        "type": "convert",
+        "z": "d2ce7379b0b9c720",
+        "name": "",
+        "convertTo": "number",
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "229816954901d362"
+            ]
+        ]
+    },
+    {
+        "id": "3a8adfa94134c3f8",
+        "type": "function",
+        "z": "d2ce7379b0b9c720",
+        "name": "Strip out status code",
+        "func": "//This function strips the first 2 characters\n//from the status string and converts to an Int32\n\nvar str = msg.payload;\nvar sub = str.slice(0,2);\nvar int = parseInt(sub);\nmsg.payload = int;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 160,
+        "wires": [
+            [
+                "a8cdc89ba60274be"
+            ]
+        ]
+    },
+    {
+        "id": "12891de8ff1d0c0d",
+        "type": "inject",
+        "z": "d2ce7379b0b9c720",
+        "name": "Add SP",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "4.5",
+        "topic": "ns=1;s=Julabo.SP;datatype=Int32",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 900,
+        "y": 280,
+        "wires": [
+            [
+                "efa7f9952d0aac5f"
+            ]
+        ]
+    },
+    {
+        "id": "3ce6a1ec9ea88dea",
+        "type": "inject",
+        "z": "d2ce7379b0b9c720",
+        "name": "Add startStop",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "4.6",
+        "topic": "ns=1;s=Julabo.startStop;datatype=Boolean",
+        "payload": "{\"opcuaCommand\":\"addVariable\"}",
+        "payloadType": "json",
+        "x": 920,
+        "y": 320,
+        "wires": [
+            [
+                "efa7f9952d0aac5f"
+            ]
+        ]
+    },
+    {
+        "id": "78de3613c3096d0e",
+        "type": "comment",
+        "z": "d2ce7379b0b9c720",
+        "name": "Feedback",
+        "info": "",
+        "x": 160,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "110ff009807a0ac0",
+        "type": "comment",
+        "z": "d2ce7379b0b9c720",
+        "name": "OPCUA Control",
+        "info": "",
+        "x": 1560,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "514b77f3dca50941",
+        "type": "inject",
+        "z": "d2ce7379b0b9c720",
+        "name": "Inject SP",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=Julabo.SP;datatype=Int32",
+        "payload": "25",
+        "payloadType": "num",
+        "x": 540,
+        "y": 20,
+        "wires": [
+            [
+                "396d0b3d93fb5c8e"
+            ]
+        ]
+    },
+    {
+        "id": "997d6cc763e8d9cb",
+        "type": "inject",
+        "z": "d2ce7379b0b9c720",
+        "name": "Inject start_stop",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=Julabo.startStop;datatype=Boolean",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 560,
+        "y": 60,
+        "wires": [
+            [
+                "396d0b3d93fb5c8e"
+            ]
+        ]
+    },
+    {
+        "id": "396d0b3d93fb5c8e",
+        "type": "OpcUa-Client",
+        "z": "d2ce7379b0b9c720",
+        "endpoint": "278a94148664a27b",
+        "action": "write",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "setstatusandtime": false,
+        "keepsessionalive": false,
+        "name": "",
+        "x": 940,
+        "y": 480,
+        "wires": [
+            [
+                "efa7f9952d0aac5f",
+                "1cf745e65535d74b"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "1cf745e65535d74b",
+        "type": "debug",
+        "z": "d2ce7379b0b9c720",
+        "name": "client out",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "3db9b2c70a88bb1c",
+        "type": "function",
+        "z": "d2ce7379b0b9c720",
+        "name": "function 2",
+        "func": "var bathTemp = msg.payload\n\nmsg.payload = {\n    \"messageType\": \"Variable\",\n    \"variableName\": \"Julabo.bathTemp\",\n    \"datatype\": \"Float\",\n    \"namespace\": \"1\",\n    \"variableValue\": msg.payload.toString(),   \n    \"sourceTimestamp\": 1688997600000,\n    \"quality\": \"Good\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 700,
+        "wires": [
+            [
+                "f763eb170a835ac7",
+                "efa7f9952d0aac5f"
+            ]
+        ]
+    },
+    {
+        "id": "729af7cacc28d918",
+        "type": "debug",
+        "z": "d2ce7379b0b9c720",
+        "name": "number only",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "f763eb170a835ac7",
+        "type": "debug",
+        "z": "d2ce7379b0b9c720",
+        "name": "fxn output",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "5a8a6d262711129d",
+        "type": "OpcUa-Item",
+        "z": "d2ce7379b0b9c720",
+        "item": "ns=1;s=Julabo.bathTemp;datatype=Float",
+        "datatype": "Float",
+        "value": "",
+        "name": "Bath Temp",
+        "x": 270,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "957057e20f53d587",
+        "type": "inject",
+        "z": "d2ce7379b0b9c720",
+        "name": "add TestVariable2 (Float)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=TestVariable2;datatype=Float",
+        "payload": "{\"opcuaCommand\": \"addVariable\"}",
+        "payloadType": "json",
+        "x": 470,
+        "y": 560,
+        "wires": [
+            [
+                "efa7f9952d0aac5f"
+            ]
+        ]
+    },
+    {
+        "id": "d5bc694f4fff3776",
+        "type": "inject",
+        "z": "d2ce7379b0b9c720",
+        "name": "Set TestVariable2 34.5 + ts + quality (String)",
+        "props": [
+            {
+                "p": "payload.messageType",
+                "v": "Variable",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableName",
+                "v": "TestVariable2",
+                "vt": "str"
+            },
+            {
+                "p": "payload.datatype",
+                "v": "Float",
+                "vt": "str"
+            },
+            {
+                "p": "payload.namespace",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableValue",
+                "v": "54.2",
+                "vt": "str"
+            },
+            {
+                "p": "payload.sourceTimestamp",
+                "v": "2022-05-25T23:47:00Z",
+                "vt": "str"
+            },
+            {
+                "p": "payload.quality",
+                "v": "UncertainInitialValue",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 530,
+        "y": 600,
+        "wires": [
+            [
+                "efa7f9952d0aac5f",
+                "566fca875f770f58"
+            ]
+        ]
+    },
+    {
+        "id": "566fca875f770f58",
+        "type": "debug",
+        "z": "d2ce7379b0b9c720",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "2f89c79ea33f7976",
+        "type": "inject",
+        "z": "11a578056fc3d56a",
+        "name": "add TestVariable",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=TestVariable;datatype=Boolean",
+        "payload": "{\"opcuaCommand\": \"addVariable\"}",
+        "payloadType": "json",
+        "x": 300,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dcd3c29064d3f48c",
+        "type": "inject",
+        "z": "11a578056fc3d56a",
+        "name": "Set TestVariable false",
+        "props": [
+            {
+                "p": "payload.messageType",
+                "v": "Variable",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableName",
+                "v": "TestVariable",
+                "vt": "str"
+            },
+            {
+                "p": "payload.datatype",
+                "v": "Boolean",
+                "vt": "str"
+            },
+            {
+                "p": "payload.namespace",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableValue",
+                "v": "false",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 280,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0b118afe42a49f53",
+        "type": "inject",
+        "z": "11a578056fc3d56a",
+        "name": "Set TestVariable2 12.3 + ts + quality (Number)",
+        "props": [
+            {
+                "p": "payload.messageType",
+                "v": "Variable",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableName",
+                "v": "TestVariable2",
+                "vt": "str"
+            },
+            {
+                "p": "payload.datatype",
+                "v": "Float",
+                "vt": "str"
+            },
+            {
+                "p": "payload.namespace",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableValue",
+                "v": "12.3",
+                "vt": "str"
+            },
+            {
+                "p": "payload.sourceTimestamp",
+                "v": "2022-05-25T20:36:00Z",
+                "vt": "str"
+            },
+            {
+                "p": "payload.quality",
+                "v": "2161770496",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 250,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8536d55d0424da30",
+        "type": "inject",
+        "z": "11a578056fc3d56a",
+        "name": "Set TestVariable \"true\"",
+        "props": [
+            {
+                "p": "payload.messageType",
+                "v": "Variable",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableName",
+                "v": "TestVariable",
+                "vt": "str"
+            },
+            {
+                "p": "payload.datatype",
+                "v": "Boolean",
+                "vt": "str"
+            },
+            {
+                "p": "payload.namespace",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableValue",
+                "v": "true",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 280,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a80b65bac7031056",
+        "type": "inject",
+        "z": "11a578056fc3d56a",
+        "name": "Set TestVariable 0 (false)",
+        "props": [
+            {
+                "p": "payload.messageType",
+                "v": "Variable",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableName",
+                "v": "TestVariable",
+                "vt": "str"
+            },
+            {
+                "p": "payload.datatype",
+                "v": "Boolean",
+                "vt": "str"
+            },
+            {
+                "p": "payload.namespace",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableValue",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 270,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8e1d7776f2447bf4",
+        "type": "inject",
+        "z": "11a578056fc3d56a",
+        "name": "Set TestVariable 1 (true)",
+        "props": [
+            {
+                "p": "payload.messageType",
+                "v": "Variable",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableName",
+                "v": "TestVariable",
+                "vt": "str"
+            },
+            {
+                "p": "payload.datatype",
+                "v": "Boolean",
+                "vt": "str"
+            },
+            {
+                "p": "payload.namespace",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableValue",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 280,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4dd1d84b6c01f3f3",
+        "type": "inject",
+        "z": "11a578056fc3d56a",
+        "name": "Set TestVariable true",
+        "props": [
+            {
+                "p": "payload.messageType",
+                "v": "Variable",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableName",
+                "v": "TestVariable",
+                "vt": "str"
+            },
+            {
+                "p": "payload.datatype",
+                "v": "Boolean",
+                "vt": "str"
+            },
+            {
+                "p": "payload.namespace",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableValue",
+                "v": "true",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 290,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f427cfa2eb088e8a",
+        "type": "inject",
+        "z": "11a578056fc3d56a",
+        "name": "Set TestVariable \"false\"",
+        "props": [
+            {
+                "p": "payload.messageType",
+                "v": "Variable",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableName",
+                "v": "TestVariable",
+                "vt": "str"
+            },
+            {
+                "p": "payload.datatype",
+                "v": "Boolean",
+                "vt": "str"
+            },
+            {
+                "p": "payload.namespace",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableValue",
+                "v": "false",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 280,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eaeea5654fe61dce",
+        "type": "inject",
+        "z": "11a578056fc3d56a",
+        "name": "Set TestVariable2 23.4",
+        "props": [
+            {
+                "p": "payload.messageType",
+                "v": "Variable",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableName",
+                "v": "TestVariable2",
+                "vt": "str"
+            },
+            {
+                "p": "payload.datatype",
+                "v": "Float",
+                "vt": "str"
+            },
+            {
+                "p": "payload.namespace",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "p": "payload.variableValue",
+                "v": "23.4",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 280,
+        "y": 500,
+        "wires": [
+            [
+                "3fb1377305e2ea18"
+            ]
+        ]
+    },
+    {
+        "id": "7dd0e0ddd42640ed",
+        "type": "comment",
+        "z": "11a578056fc3d56a",
+        "name": "StatusCodes",
+        "info": "Use actual decimal StatusCode value:\nDataLost:                           2147483648\nBadAggregateConfigurationRejected:  2161770496\netc.\n\nLook values from Github node-opcua:\nnode-opcua/packages/node-opcua-status-code/source/_generated_status_codes.ts ",
+        "x": 250,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "7da93a5a35e3f108",
+        "type": "debug",
+        "z": "11a578056fc3d56a",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "3fb1377305e2ea18",
+        "type": "debug",
+        "z": "11a578056fc3d56a",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 500,
         "wires": []
     }
 ]
