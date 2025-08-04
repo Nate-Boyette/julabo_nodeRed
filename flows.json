@@ -51,7 +51,7 @@
         "bin": "false",
         "out": "char",
         "addchar": " \\r",
-        "responsetimeout": 10000
+        "responsetimeout": "2000"
     },
     {
         "id": "34a7d51580ea7526",
@@ -201,7 +201,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "5",
+        "repeat": "5.1",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
@@ -230,7 +230,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "1",
+        "repeat": "3.4",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
@@ -259,7 +259,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "5",
+        "repeat": "5.3",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
@@ -288,7 +288,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "7",
+        "repeat": "7.4",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
@@ -297,35 +297,6 @@
         "payloadType": "str",
         "x": 200,
         "y": 300,
-        "wires": [
-            [
-                "2127492e50451c2d"
-            ]
-        ]
-    },
-    {
-        "id": "350fceb022f39b47",
-        "type": "inject",
-        "z": "77739f07d1fee012",
-        "name": "Bath Temp Units",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "60",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "bathTempUnits",
-        "payload": "IN_SP_06",
-        "payloadType": "str",
-        "x": 230,
-        "y": 340,
         "wires": [
             [
                 "2127492e50451c2d"
@@ -377,7 +348,6 @@
         "y": 760,
         "wires": [
             [
-                "686e4936582016ce",
                 "aabe498c99b315e3"
             ]
         ]
@@ -406,81 +376,8 @@
         "x": 130,
         "y": 840,
         "wires": [
-            [
-                "c90b838b8c21fd29"
-            ]
+            []
         ]
-    },
-    {
-        "id": "3202b71f566061ee",
-        "type": "serial out",
-        "z": "77739f07d1fee012",
-        "name": "RS232",
-        "serial": "eef81d50a1dfa758",
-        "x": 1310,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "c239ebc99cd350e6",
-        "type": "change",
-        "z": "77739f07d1fee012",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "0",
-                "fromt": "str",
-                "to": "C",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "1",
-                "fromt": "str",
-                "to": "F",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 980,
-        "y": 360,
-        "wires": [
-            [
-                "00a03e5447dc9573",
-                "dd4f500e354eb3df"
-            ]
-        ]
-    },
-    {
-        "id": "c7096e8e941dac22",
-        "type": "ui-text",
-        "z": "77739f07d1fee012",
-        "group": "5d2c8ad10fce93c9",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Bath Temp",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "x": 1170,
-        "y": 20,
-        "wires": []
     },
     {
         "id": "0141e63a67abf376",
@@ -509,127 +406,27 @@
                 "t": "eq",
                 "v": "spFb",
                 "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "bathTempUnits",
-                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 5,
+        "outputs": 4,
         "x": 810,
         "y": 280,
         "wires": [
             [
-                "c7096e8e941dac22",
                 "e3094a8fd6430774"
             ],
             [
-                "f47241f7f4256dc1",
                 "32ce431112857992"
             ],
             [
-                "b19958c27227be6e",
                 "dd4c9ce2f38c2cff"
             ],
             [
-                "c73c602175a1fd47",
                 "9c4e6c594c080f04"
-            ],
-            [
-                "c239ebc99cd350e6"
             ]
         ]
-    },
-    {
-        "id": "f47241f7f4256dc1",
-        "type": "ui-text",
-        "z": "77739f07d1fee012",
-        "group": "5d2c8ad10fce93c9",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Status",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "x": 1150,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "b19958c27227be6e",
-        "type": "ui-text",
-        "z": "77739f07d1fee012",
-        "group": "5d2c8ad10fce93c9",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "External Temp",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "x": 1180,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "c73c602175a1fd47",
-        "type": "ui-text",
-        "z": "77739f07d1fee012",
-        "group": "5d2c8ad10fce93c9",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Setpoint Feedback",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "x": 1190,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "00a03e5447dc9573",
-        "type": "ui-text",
-        "z": "77739f07d1fee012",
-        "group": "5d2c8ad10fce93c9",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Bath Temp Units",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "x": 1180,
-        "y": 400,
-        "wires": []
     },
     {
         "id": "8e5d27ba163bb935",
@@ -653,85 +450,11 @@
         "payload": "IN_MODE_01",
         "payloadType": "str",
         "x": 210,
-        "y": 380,
+        "y": 340,
         "wires": [
             [
                 "2127492e50451c2d"
             ]
-        ]
-    },
-    {
-        "id": "686e4936582016ce",
-        "type": "ui-button",
-        "z": "77739f07d1fee012",
-        "group": "5d2c8ad10fce93c9",
-        "name": "",
-        "label": "Start",
-        "order": 8,
-        "width": 1,
-        "height": 0,
-        "emulateClick": true,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "OUT_MODE_05 1",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "",
-        "textColor": "",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 290,
-        "y": 800,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c90b838b8c21fd29",
-        "type": "ui-button",
-        "z": "77739f07d1fee012",
-        "group": "5d2c8ad10fce93c9",
-        "name": "",
-        "label": "Stop",
-        "order": 10,
-        "width": 1,
-        "height": 0,
-        "emulateClick": true,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "OUT_MODE_05 0",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "",
-        "textColor": "",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 290,
-        "y": 840,
-        "wires": [
-            []
         ]
     },
     {
@@ -750,8 +473,7 @@
         "y": 600,
         "wires": [
             [
-                "7dfbb887d7de8e64",
-                "3202b71f566061ee"
+                "7dfbb887d7de8e64"
             ]
         ]
     },
@@ -781,8 +503,8 @@
         "links": [
             "3612154f23d5d54d"
         ],
-        "x": 1245,
-        "y": 180,
+        "x": 1005,
+        "y": 220,
         "wires": []
     },
     {
@@ -794,8 +516,8 @@
         "links": [
             "ec4f8eea18d5e764"
         ],
-        "x": 1205,
-        "y": 220,
+        "x": 1005,
+        "y": 260,
         "wires": []
     },
     {
@@ -807,8 +529,8 @@
         "links": [
             "e2e75b601ec85308"
         ],
-        "x": 1265,
-        "y": 260,
+        "x": 1005,
+        "y": 300,
         "wires": []
     },
     {
@@ -820,20 +542,7 @@
         "links": [
             "c7a89e403f0f002f"
         ],
-        "x": 1285,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "dd4f500e354eb3df",
-        "type": "link out",
-        "z": "77739f07d1fee012",
-        "name": "Bath Temp Units",
-        "mode": "link",
-        "links": [
-            "c02c62c009767290"
-        ],
-        "x": 1275,
+        "x": 1005,
         "y": 340,
         "wires": []
     },
@@ -842,7 +551,7 @@
         "type": "debug",
         "z": "77739f07d1fee012",
         "name": "rs232",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -850,7 +559,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
+        "x": 870,
         "y": 120,
         "wires": []
     },
@@ -1100,22 +809,6 @@
         ]
     },
     {
-        "id": "c02c62c009767290",
-        "type": "link in",
-        "z": "d2ce7379b0b9c720",
-        "name": "link in 6",
-        "links": [
-            "dd4f500e354eb3df"
-        ],
-        "x": 45,
-        "y": 780,
-        "wires": [
-            [
-                "eb439b18abae6068"
-            ]
-        ]
-    },
-    {
         "id": "5f03a79fee9f0ab0",
         "type": "debug",
         "z": "d2ce7379b0b9c720",
@@ -1137,7 +830,7 @@
         "type": "debug",
         "z": "d2ce7379b0b9c720",
         "name": "Status Link",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1181,23 +874,6 @@
         "statusType": "auto",
         "x": 950,
         "y": 740,
-        "wires": []
-    },
-    {
-        "id": "c0f116d9fdc5b8b4",
-        "type": "debug",
-        "z": "d2ce7379b0b9c720",
-        "name": "Bath Temp Units Link",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 960,
-        "y": 780,
         "wires": []
     },
     {
@@ -1380,35 +1056,6 @@
         "payloadType": "json",
         "x": 190,
         "y": 280,
-        "wires": [
-            [
-                "efa7f9952d0aac5f"
-            ]
-        ]
-    },
-    {
-        "id": "7a222573dc4224b6",
-        "type": "inject",
-        "z": "d2ce7379b0b9c720",
-        "name": "Add bathTempUnits",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "4.4",
-        "topic": "ns=1;s=Julabo.bathTempUnits;datatype=String",
-        "payload": "{\"opcuaCommand\":\"addVariable\"}",
-        "payloadType": "json",
-        "x": 200,
-        "y": 320,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1807,27 +1454,6 @@
             [
                 "efa7f9952d0aac5f",
                 "b0304b8e9a4d9b07"
-            ]
-        ]
-    },
-    {
-        "id": "eb439b18abae6068",
-        "type": "function",
-        "z": "d2ce7379b0b9c720",
-        "name": "bathTemp units update",
-        "func": "var bathTemp = msg.payload\n\nmsg.payload = {\n    \"messageType\": \"Variable\",\n    \"variableName\": \"Julabo.bathTempUnits\",\n    \"datatype\": \"String\",\n    \"namespace\": \"1\",\n    \"variableValue\": msg.payload,   \n    \"sourceTimestamp\": 1688997600000,\n    \"quality\": \"Good\"\n}\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 460,
-        "y": 780,
-        "wires": [
-            [
-                "c0f116d9fdc5b8b4",
-                "efa7f9952d0aac5f"
             ]
         ]
     },
