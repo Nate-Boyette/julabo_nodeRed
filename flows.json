@@ -954,8 +954,8 @@
         "links": [
             "e3094a8fd6430774"
         ],
-        "x": 65,
-        "y": 80,
+        "x": 45,
+        "y": 620,
         "wires": [
             [
                 "ff3f207a6bb8a1a7"
@@ -970,8 +970,8 @@
         "links": [
             "32ce431112857992"
         ],
-        "x": 65,
-        "y": 160,
+        "x": 45,
+        "y": 660,
         "wires": [
             [
                 "3a8adfa94134c3f8"
@@ -986,8 +986,8 @@
         "links": [
             "dd4c9ce2f38c2cff"
         ],
-        "x": 65,
-        "y": 240,
+        "x": 45,
+        "y": 700,
         "wires": [
             [
                 "6c484d50efc98068"
@@ -1002,8 +1002,8 @@
         "links": [
             "9c4e6c594c080f04"
         ],
-        "x": 65,
-        "y": 320,
+        "x": 45,
+        "y": 740,
         "wires": [
             [
                 "0f9076d4a244db8d"
@@ -1018,11 +1018,11 @@
         "links": [
             "dd4f500e354eb3df"
         ],
-        "x": 65,
-        "y": 400,
+        "x": 45,
+        "y": 780,
         "wires": [
             [
-                "3bd0c298a178d07c"
+                "eb439b18abae6068"
             ]
         ]
     },
@@ -1048,7 +1048,7 @@
         "type": "debug",
         "z": "d2ce7379b0b9c720",
         "name": "Status Link",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1065,7 +1065,7 @@
         "type": "debug",
         "z": "d2ce7379b0b9c720",
         "name": "External Temp Link",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1082,7 +1082,7 @@
         "type": "debug",
         "z": "d2ce7379b0b9c720",
         "name": "SP Feedback Link",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1099,7 +1099,7 @@
         "type": "debug",
         "z": "d2ce7379b0b9c720",
         "name": "Bath Temp Units Link",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1173,8 +1173,8 @@
         "topic": "ns=3;s=Julabo",
         "payload": "{\"opcuaCommand\":\"addFolder\"}",
         "payloadType": "json",
-        "x": 940,
-        "y": 40,
+        "x": 200,
+        "y": 120,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1202,8 +1202,8 @@
         "topic": "ns=1;s=Julabo.bathTemp;datatype=Float",
         "payload": "{\"opcuaCommand\":\"addVariable\"}",
         "payloadType": "json",
-        "x": 920,
-        "y": 80,
+        "x": 180,
+        "y": 160,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1231,8 +1231,8 @@
         "topic": "ns=1;s=Julabo.status;datatype=Int32",
         "payload": "{\"opcuaCommand\":\"addVariable\"}",
         "payloadType": "json",
-        "x": 910,
-        "y": 120,
+        "x": 170,
+        "y": 200,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1260,8 +1260,8 @@
         "topic": "ns=1;s=Julabo.externalTemp;datatype=Float",
         "payload": "{\"opcuaCommand\":\"addVariable\"}",
         "payloadType": "json",
-        "x": 930,
-        "y": 160,
+        "x": 190,
+        "y": 240,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1289,8 +1289,8 @@
         "topic": "ns=1;s=Julabo.spFeedback;datatype=Float",
         "payload": "{\"opcuaCommand\":\"addVariable\"}",
         "payloadType": "json",
-        "x": 930,
-        "y": 200,
+        "x": 190,
+        "y": 280,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1318,89 +1318,11 @@
         "topic": "ns=1;s=Julabo.bathTempUnits;datatype=String",
         "payload": "{\"opcuaCommand\":\"addVariable\"}",
         "payloadType": "json",
-        "x": 940,
-        "y": 240,
-        "wires": [
-            [
-                "efa7f9952d0aac5f"
-            ]
-        ]
-    },
-    {
-        "id": "1c1d1b534f8f8974",
-        "type": "OpcUa-Item",
-        "z": "d2ce7379b0b9c720",
-        "item": "ns=1;s=Julabo.bathTemp",
-        "datatype": "Float",
-        "value": "",
-        "name": "Bath Temp",
-        "x": 410,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a8cdc89ba60274be",
-        "type": "OpcUa-Item",
-        "z": "d2ce7379b0b9c720",
-        "item": "ns=1;s=Julabo.status;datatype=Int32",
-        "datatype": "Int32",
-        "value": "",
-        "name": "Status",
-        "x": 370,
-        "y": 160,
-        "wires": [
-            [
-                "23129e872276b04d"
-            ]
-        ]
-    },
-    {
-        "id": "593032a922967b86",
-        "type": "OpcUa-Item",
-        "z": "d2ce7379b0b9c720",
-        "item": "ns=1;s=Julabo.externalTemp;datatype=Float",
-        "datatype": "Float",
-        "value": "",
-        "name": "External Temp",
-        "x": 380,
-        "y": 240,
-        "wires": [
-            [
-                "9afad92f01486308"
-            ]
-        ]
-    },
-    {
-        "id": "229816954901d362",
-        "type": "OpcUa-Item",
-        "z": "d2ce7379b0b9c720",
-        "item": "ns=1;s=Julabo.spFeedback;datatype=Float",
-        "datatype": "Float",
-        "value": "",
-        "name": "SP Feedback",
-        "x": 380,
+        "x": 200,
         "y": 320,
         "wires": [
             [
-                "b0304b8e9a4d9b07"
-            ]
-        ]
-    },
-    {
-        "id": "3bd0c298a178d07c",
-        "type": "OpcUa-Item",
-        "z": "d2ce7379b0b9c720",
-        "item": "ns=1;s=Julabo.bathTempUnits;datatype=String",
-        "datatype": "String",
-        "value": "",
-        "name": "Bath Temp Units",
-        "x": 380,
-        "y": 400,
-        "wires": [
-            [
-                "c0f116d9fdc5b8b4"
+                "efa7f9952d0aac5f"
             ]
         ]
     },
@@ -1411,11 +1333,9 @@
         "name": "",
         "convertTo": "number",
         "x": 190,
-        "y": 80,
+        "y": 620,
         "wires": [
             [
-                "1c1d1b534f8f8974",
-                "729af7cacc28d918",
                 "3db9b2c70a88bb1c"
             ]
         ]
@@ -1427,10 +1347,10 @@
         "name": "",
         "convertTo": "number",
         "x": 190,
-        "y": 240,
+        "y": 700,
         "wires": [
             [
-                "593032a922967b86"
+                "3a85b912ab552756"
             ]
         ]
     },
@@ -1441,10 +1361,10 @@
         "name": "",
         "convertTo": "number",
         "x": 190,
-        "y": 320,
+        "y": 740,
         "wires": [
             [
-                "229816954901d362"
+                "80b16ec18da246cf"
             ]
         ]
     },
@@ -1461,10 +1381,10 @@
         "finalize": "",
         "libs": [],
         "x": 200,
-        "y": 160,
+        "y": 660,
         "wires": [
             [
-                "a8cdc89ba60274be"
+                "6c41a89f54b1e590"
             ]
         ]
     },
@@ -1489,8 +1409,8 @@
         "topic": "ns=1;s=Julabo.SP;datatype=Int32",
         "payload": "{\"opcuaCommand\":\"addVariable\"}",
         "payloadType": "json",
-        "x": 900,
-        "y": 280,
+        "x": 160,
+        "y": 360,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1518,8 +1438,8 @@
         "topic": "ns=1;s=Julabo.startStop;datatype=Boolean",
         "payload": "{\"opcuaCommand\":\"addVariable\"}",
         "payloadType": "json",
-        "x": 920,
-        "y": 320,
+        "x": 180,
+        "y": 400,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1532,8 +1452,8 @@
         "z": "d2ce7379b0b9c720",
         "name": "Feedback",
         "info": "",
-        "x": 160,
-        "y": 20,
+        "x": 180,
+        "y": 580,
         "wires": []
     },
     {
@@ -1567,8 +1487,8 @@
         "topic": "ns=1;s=Julabo.SP;datatype=Int32",
         "payload": "25",
         "payloadType": "num",
-        "x": 540,
-        "y": 20,
+        "x": 180,
+        "y": 480,
         "wires": [
             [
                 "396d0b3d93fb5c8e"
@@ -1596,8 +1516,8 @@
         "topic": "ns=1;s=Julabo.startStop;datatype=Boolean",
         "payload": "true",
         "payloadType": "bool",
-        "x": 560,
-        "y": 60,
+        "x": 180,
+        "y": 520,
         "wires": [
             [
                 "396d0b3d93fb5c8e"
@@ -1627,39 +1547,21 @@
         "setstatusandtime": false,
         "keepsessionalive": false,
         "name": "",
-        "x": 940,
-        "y": 480,
+        "x": 460,
+        "y": 500,
         "wires": [
             [
-                "efa7f9952d0aac5f",
-                "1cf745e65535d74b"
+                "efa7f9952d0aac5f"
             ],
             [],
             []
         ]
     },
     {
-        "id": "1cf745e65535d74b",
-        "type": "debug",
-        "z": "d2ce7379b0b9c720",
-        "name": "client out",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1200,
-        "y": 460,
-        "wires": []
-    },
-    {
         "id": "3db9b2c70a88bb1c",
         "type": "function",
         "z": "d2ce7379b0b9c720",
-        "name": "function 2",
+        "name": "bathTemp update",
         "func": "var bathTemp = msg.payload\n\nmsg.payload = {\n    \"messageType\": \"Variable\",\n    \"variableName\": \"Julabo.bathTemp\",\n    \"datatype\": \"Float\",\n    \"namespace\": \"1\",\n    \"variableValue\": msg.payload.toString(),   \n    \"sourceTimestamp\": 1688997600000,\n    \"quality\": \"Good\"\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -1667,61 +1569,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 700,
+        "x": 450,
+        "y": 620,
         "wires": [
             [
-                "f763eb170a835ac7",
-                "efa7f9952d0aac5f"
+                "efa7f9952d0aac5f",
+                "5f03a79fee9f0ab0"
             ]
-        ]
-    },
-    {
-        "id": "729af7cacc28d918",
-        "type": "debug",
-        "z": "d2ce7379b0b9c720",
-        "name": "number only",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 410,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "f763eb170a835ac7",
-        "type": "debug",
-        "z": "d2ce7379b0b9c720",
-        "name": "fxn output",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 640,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "5a8a6d262711129d",
-        "type": "OpcUa-Item",
-        "z": "d2ce7379b0b9c720",
-        "item": "ns=1;s=Julabo.bathTemp;datatype=Float",
-        "datatype": "Float",
-        "value": "",
-        "name": "Bath Temp",
-        "x": 270,
-        "y": 700,
-        "wires": [
-            []
         ]
     },
     {
@@ -1745,12 +1599,10 @@
         "topic": "ns=1;s=TestVariable2;datatype=Float",
         "payload": "{\"opcuaCommand\": \"addVariable\"}",
         "payloadType": "json",
-        "x": 470,
-        "y": 560,
+        "x": 250,
+        "y": 840,
         "wires": [
-            [
-                "efa7f9952d0aac5f"
-            ]
+            []
         ]
     },
     {
@@ -1800,29 +1652,104 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 530,
-        "y": 600,
+        "x": 310,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6c41a89f54b1e590",
+        "type": "function",
+        "z": "d2ce7379b0b9c720",
+        "name": "Status update",
+        "func": "var bathTemp = msg.payload\n\nmsg.payload = {\n    \"messageType\": \"Variable\",\n    \"variableName\": \"Julabo.status\",\n    \"datatype\": \"Int32\",\n    \"namespace\": \"1\",\n    \"variableValue\": msg.payload.toString(),   \n    \"sourceTimestamp\": 1688997600000,\n    \"quality\": \"Good\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 660,
         "wires": [
             [
-                "efa7f9952d0aac5f",
-                "566fca875f770f58"
+                "23129e872276b04d",
+                "efa7f9952d0aac5f"
             ]
         ]
     },
     {
-        "id": "566fca875f770f58",
-        "type": "debug",
+        "id": "3a85b912ab552756",
+        "type": "function",
         "z": "d2ce7379b0b9c720",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1040,
-        "y": 560,
+        "name": "externalTemp update",
+        "func": "var bathTemp = msg.payload\n\nmsg.payload = {\n    \"messageType\": \"Variable\",\n    \"variableName\": \"Julabo.externalTemp\",\n    \"datatype\": \"Float\",\n    \"namespace\": \"1\",\n    \"variableValue\": msg.payload.toString(),   \n    \"sourceTimestamp\": 1688997600000,\n    \"quality\": \"Good\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 700,
+        "wires": [
+            [
+                "9afad92f01486308",
+                "efa7f9952d0aac5f"
+            ]
+        ]
+    },
+    {
+        "id": "80b16ec18da246cf",
+        "type": "function",
+        "z": "d2ce7379b0b9c720",
+        "name": "SP feedback update",
+        "func": "var bathTemp = msg.payload\n\nmsg.payload = {\n    \"messageType\": \"Variable\",\n    \"variableName\": \"Julabo.spFeedback\",\n    \"datatype\": \"Float\",\n    \"namespace\": \"1\",\n    \"variableValue\": msg.payload.toString(),   \n    \"sourceTimestamp\": 1688997600000,\n    \"quality\": \"Good\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 740,
+        "wires": [
+            [
+                "efa7f9952d0aac5f",
+                "b0304b8e9a4d9b07"
+            ]
+        ]
+    },
+    {
+        "id": "eb439b18abae6068",
+        "type": "function",
+        "z": "d2ce7379b0b9c720",
+        "name": "bathTemp units update",
+        "func": "var bathTemp = msg.payload\n\nmsg.payload = {\n    \"messageType\": \"Variable\",\n    \"variableName\": \"Julabo.bathTempUnits\",\n    \"datatype\": \"String\",\n    \"namespace\": \"1\",\n    \"variableValue\": msg.payload,   \n    \"sourceTimestamp\": 1688997600000,\n    \"quality\": \"Good\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 780,
+        "wires": [
+            [
+                "c0f116d9fdc5b8b4",
+                "efa7f9952d0aac5f"
+            ]
+        ]
+    },
+    {
+        "id": "5a1f7ae65d6bf43c",
+        "type": "comment",
+        "z": "d2ce7379b0b9c720",
+        "name": "Variable Creation",
+        "info": "These inject nodes fire on start up \nto create the variables that we will\nbe reading/manipulating for the Julabo\nheater/chiller unit",
+        "x": 200,
+        "y": 60,
         "wires": []
     },
     {
