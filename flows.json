@@ -16,12 +16,6 @@
         "env": []
     },
     {
-        "id": "4d8e34e393db4e22",
-        "type": "tab",
-        "label": "IGSS OPC UA Tests",
-        "disabled": true
-    },
-    {
         "id": "0c7cfe180c3dd028",
         "type": "OpcUa-Endpoint",
         "endpoint": "opc.tcp://10.20.8.215:4840",
@@ -51,7 +45,7 @@
         "bin": "false",
         "out": "char",
         "addchar": " \\r",
-        "responsetimeout": "5000"
+        "responsetimeout": "1000"
     },
     {
         "id": "34a7d51580ea7526",
@@ -178,8 +172,8 @@
         "z": "77739f07d1fee012",
         "name": "rs232",
         "serial": "eef81d50a1dfa758",
-        "x": 630,
-        "y": 280,
+        "x": 1010,
+        "y": 260,
         "wires": [
             [
                 "0141e63a67abf376",
@@ -208,8 +202,8 @@
         "topic": "bathTemp",
         "payload": "IN_PV_00",
         "payloadType": "str",
-        "x": 210,
-        "y": 180,
+        "x": 90,
+        "y": 620,
         "wires": [
             []
         ]
@@ -235,8 +229,8 @@
         "topic": "status",
         "payload": "status",
         "payloadType": "str",
-        "x": 200,
-        "y": 220,
+        "x": 80,
+        "y": 660,
         "wires": [
             []
         ]
@@ -262,8 +256,8 @@
         "topic": "externalTemp",
         "payload": "IN_PV_02",
         "payloadType": "str",
-        "x": 220,
-        "y": 260,
+        "x": 100,
+        "y": 700,
         "wires": [
             []
         ]
@@ -289,8 +283,8 @@
         "topic": "spFb",
         "payload": "IN_SP_00",
         "payloadType": "str",
-        "x": 200,
-        "y": 300,
+        "x": 80,
+        "y": 740,
         "wires": [
             []
         ]
@@ -301,73 +295,19 @@
         "z": "77739f07d1fee012",
         "name": "Status",
         "info": "",
-        "x": 170,
-        "y": 60,
+        "x": 90,
+        "y": 580,
         "wires": []
     },
     {
         "id": "a4898d68992732e7",
         "type": "comment",
         "z": "77739f07d1fee012",
-        "name": "Control",
-        "info": "",
-        "x": 130,
-        "y": 560,
+        "name": "Cyclic Control",
+        "info": "Thiws timestamp triggers the read nodes for\ntemp SP and the start command boolean",
+        "x": 90,
+        "y": 220,
         "wires": []
-    },
-    {
-        "id": "1e9506cddc1871f5",
-        "type": "inject",
-        "z": "77739f07d1fee012",
-        "name": "Start",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "OUT_MODE_05 1",
-        "payloadType": "str",
-        "x": 130,
-        "y": 760,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "cff57832a045b8b7",
-        "type": "inject",
-        "z": "77739f07d1fee012",
-        "name": "Stop",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "OUT_MODE_05 0",
-        "payloadType": "str",
-        "x": 130,
-        "y": 840,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "0141e63a67abf376",
@@ -401,16 +341,14 @@
         "checkall": "true",
         "repair": false,
         "outputs": 4,
-        "x": 810,
-        "y": 280,
+        "x": 1170,
+        "y": 260,
         "wires": [
             [
-                "e3094a8fd6430774",
-                "17c94cf052256013"
+                "e3094a8fd6430774"
             ],
             [
-                "32ce431112857992",
-                "42abfdc8fba38a1e"
+                "32ce431112857992"
             ],
             [
                 "dd4c9ce2f38c2cff"
@@ -441,8 +379,8 @@
         "topic": "selectedSP",
         "payload": "IN_MODE_01",
         "payloadType": "str",
-        "x": 210,
-        "y": 340,
+        "x": 90,
+        "y": 780,
         "wires": [
             []
         ]
@@ -459,31 +397,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 760,
-        "y": 600,
+        "x": 600,
+        "y": 220,
         "wires": [
             [
-                "7dfbb887d7de8e64",
                 "8a012bbb443386af"
             ]
         ]
-    },
-    {
-        "id": "7dfbb887d7de8e64",
-        "type": "debug",
-        "z": "77739f07d1fee012",
-        "name": "SP Debug",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1050,
-        "y": 600,
-        "wires": []
     },
     {
         "id": "e3094a8fd6430774",
@@ -494,8 +414,8 @@
         "links": [
             "3612154f23d5d54d"
         ],
-        "x": 1005,
-        "y": 220,
+        "x": 1325,
+        "y": 200,
         "wires": []
     },
     {
@@ -507,8 +427,8 @@
         "links": [
             "ec4f8eea18d5e764"
         ],
-        "x": 1005,
-        "y": 260,
+        "x": 1325,
+        "y": 240,
         "wires": []
     },
     {
@@ -520,8 +440,8 @@
         "links": [
             "e2e75b601ec85308"
         ],
-        "x": 1005,
-        "y": 300,
+        "x": 1325,
+        "y": 280,
         "wires": []
     },
     {
@@ -533,8 +453,8 @@
         "links": [
             "c7a89e403f0f002f"
         ],
-        "x": 1005,
-        "y": 340,
+        "x": 1325,
+        "y": 320,
         "wires": []
     },
     {
@@ -550,8 +470,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 810,
-        "y": 220,
+        "x": 1190,
+        "y": 140,
         "wires": []
     },
     {
@@ -577,40 +497,13 @@
         "setstatusandtime": false,
         "keepsessionalive": false,
         "name": "",
-        "x": 520,
-        "y": 620,
+        "x": 400,
+        "y": 240,
         "wires": [
             [
-                "7d104780cebe2620"
+                "38b2e0d05d09a14e"
             ],
             [],
-            []
-        ]
-    },
-    {
-        "id": "ef5d799a1ed957f5",
-        "type": "inject",
-        "z": "77739f07d1fee012",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "1.5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 150,
-        "y": 620,
-        "wires": [
             []
         ]
     },
@@ -622,8 +515,8 @@
         "datatype": "Float",
         "value": "",
         "name": "SP read",
-        "x": 320,
-        "y": 620,
+        "x": 240,
+        "y": 240,
         "wires": [
             [
                 "559e72bc7dec3bdc"
@@ -638,8 +531,8 @@
         "datatype": "Boolean",
         "value": "",
         "name": "Start read",
-        "x": 300,
-        "y": 760,
+        "x": 240,
+        "y": 280,
         "wires": [
             [
                 "9388b0c7f81aa50f"
@@ -669,33 +562,15 @@
         "setstatusandtime": false,
         "keepsessionalive": false,
         "name": "",
-        "x": 540,
-        "y": 760,
+        "x": 400,
+        "y": 300,
         "wires": [
             [
-                "64bca74c9c13720a",
-                "4087cb08c1ec8caf"
+                "290984402e08715f"
             ],
             [],
             []
         ]
-    },
-    {
-        "id": "d36bba8bc96d1c74",
-        "type": "debug",
-        "z": "77739f07d1fee012",
-        "name": "Start debug",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1050,
-        "y": 760,
-        "wires": []
     },
     {
         "id": "64bca74c9c13720a",
@@ -709,30 +584,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 760,
+        "x": 590,
+        "y": 280,
         "wires": [
             [
-                "d36bba8bc96d1c74",
                 "8a012bbb443386af"
             ]
         ]
-    },
-    {
-        "id": "4087cb08c1ec8caf",
-        "type": "debug",
-        "z": "77739f07d1fee012",
-        "name": "debug 1",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 700,
-        "wires": []
     },
     {
         "id": "bb0030cf9823a3a5",
@@ -748,41 +606,129 @@
                 "vt": "str"
             }
         ],
-        "repeat": "10",
+        "repeat": "6",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 150,
-        "y": 420,
+        "x": 90,
+        "y": 260,
         "wires": [
             [
                 "02c83f8dfb88d9e3",
-                "aabe498c99b315e3"
+                "aabe498c99b315e3",
+                "2871d39e7e32b739"
             ]
         ]
     },
     {
-        "id": "6538657fcbc33b67",
+        "id": "8a012bbb443386af",
+        "type": "function",
+        "z": "77739f07d1fee012",
+        "name": "Command List",
+        "func": "const commands = [\n    { payload: \"IN_PV_00\", topic: \"bathTemp\" },\n    { payload: \"status\", topic: \"status\" },\n    { payload: \"IN_PV_02\", topic: \"externalTemp\" },\n    { payload: \"IN_SP_00\", topic: \"spFb\" },\n    { payload: \"IN_MODE_01\", topic: \"selectedSP\" }\n];\n\nif (msg.topic === \"spRead\") {\n    commands.push({ payload: msg.payload, topic: msg.topic });\n   }\nif (msg.topic === \"Start\") {\n   commands.push({ payload: msg.payload, topic: msg.topic });\n}\n\nconst delay = 100;\n\ncommands.forEach((cmd, i) => {\n    setTimeout(() => {\n        node.send(cmd);\n    }, i * delay);\n});\n\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "db440e3c4eb0a9e9",
+        "type": "comment",
+        "z": "77739f07d1fee012",
+        "name": "RS232 output to be sent to OPCUA server",
+        "info": "These are feedback variables that need\nto be written to opcua server for \nmonitoring",
+        "x": 1520,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "ea1005b2f7832ecd",
+        "type": "comment",
+        "z": "77739f07d1fee012",
+        "name": "OPCUA command to rs232 string",
+        "info": "Takes the values read from the OPCUA server\nand appends them to strings\nto write that command via rs232\n",
+        "x": 570,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "d1402410f1278b86",
+        "type": "comment",
+        "z": "77739f07d1fee012",
+        "name": "write to julabo",
+        "info": "this sends both the commands to read\nfeedback variables and to write\nthe command strings that originated from \nOPCUA server",
+        "x": 810,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "38b2e0d05d09a14e",
+        "type": "function",
+        "z": "77739f07d1fee012",
+        "name": "Temp SP Concatenate",
+        "func": "var SPin = msg.payload\nmsg.payload = \"OUT_SP_00 \" + SPin\nmsg.topic = \"spRead\"\nflow.set('cmd6_payload', msg.payload)\nflow.set('cmd6_topic', msg.topic)\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 400,
+        "wires": [
+            [
+                "368c6e66ec910489"
+            ]
+        ]
+    },
+    {
+        "id": "290984402e08715f",
+        "type": "function",
+        "z": "77739f07d1fee012",
+        "name": "Start Concatenate",
+        "func": "var SS = msg.payload\nvar value = (SS === true || SS === \"true\" || SS === 1 || SS === \"1\") ? 1 : 0\nmsg.payload = \"OUT_MODE_05 \" + value\nmsg.topic = \"Start\"\nflow.set('cmd7_payload', msg.payload)\nflow.set('cmd7_topic', msg.topic)\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 440,
+        "wires": [
+            [
+                "6ca9781e36c5e0e7"
+            ]
+        ]
+    },
+    {
+        "id": "368c6e66ec910489",
         "type": "debug",
         "z": "77739f07d1fee012",
-        "name": "read setting debug",
+        "name": "debug 1",
         "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 850,
+        "x": 840,
         "y": 400,
         "wires": []
     },
     {
-        "id": "17c94cf052256013",
+        "id": "6ca9781e36c5e0e7",
         "type": "debug",
         "z": "77739f07d1fee012",
         "name": "debug 2",
@@ -793,47 +739,83 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1080,
-        "y": 140,
+        "x": 840,
+        "y": 440,
         "wires": []
     },
     {
-        "id": "42abfdc8fba38a1e",
-        "type": "debug",
-        "z": "77739f07d1fee012",
-        "name": "status msg from rs232",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1120,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "8a012bbb443386af",
+        "id": "2871d39e7e32b739",
         "type": "function",
         "z": "77739f07d1fee012",
-        "name": "Command List",
-        "func": "const commands = [\n    { payload: \"IN_PV_00\", topic: \"bathTemp\" },\n    { payload: \"status\", topic: \"status\" },\n    { payload: \"IN_PV_02\", topic: \"externalTemp\" },\n    { payload: \"IN_SP_00\", topic: \"spFb\" },\n    { payload: \"IN_MODE_01\", topic: \"selectedSP\" }\n];\n\nif (msg.topic === \"spRead\") {\n    commands.push({ payload: msg.payload, topic: msg.topic });\n}\nif (msg.topic === \"Start\") {\n    commands.push({ payload: msg.payload, topic: msg.topic });\n}\n\nconst delay = 1000;\n\ncommands.forEach((cmd, i) => {\n    setTimeout(() => {\n        node.send(cmd);\n    }, i * delay);\n});\n\nreturn null;\n",
+        "name": "build command list",
+        "func": "// Store the command list commands in context\nflow.set('cmd1_payload', 'IN_PV_00')\nflow.set('cmd1_topic', 'bathTemp')\n\nflow.set('cmd2_payload', 'status')\nflow.set('cmd2_topic', 'status')\n\nflow.set('cmd3_payload', 'IN_PV_02')\nflow.set('cmd3_topic', 'externalTemp')\n\nflow.set('cmd4_payload', 'IN_SP_00')\nflow.set('cmd4_topic', 'spFb')\n\nflow.set('cmd5_payload', 'IN_MODE_01')\nflow.set('cmd5_topic', 'selectedSP')\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 400,
+        "x": 610,
+        "y": 480,
+        "wires": [
+            [
+                "6ee58fc340dd912b",
+                "67f7c48150761110"
+            ]
+        ]
+    },
+    {
+        "id": "6ee58fc340dd912b",
+        "type": "debug",
+        "z": "77739f07d1fee012",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "67f7c48150761110",
+        "type": "function",
+        "z": "77739f07d1fee012",
+        "name": "send context ",
+        "func": "// Read all commands from context\nconst commands = [];\n\n// Add static commands\nfor (let i = 1; i <= 5; i++) {\n    const payload = flow.get(`cmd${i}_payload`);\n    const topic = flow.get(`cmd${i}_topic`);\n    if (payload && topic) {\n        commands.push({ payload: payload, topic: topic });\n    }\n}\n\n// Add dynamic commands (SP and Start)\nconst cmd6_payload = flow.get('cmd6_payload');\nconst cmd6_topic = flow.get('cmd6_topic');\nif (cmd6_payload && cmd6_topic) {\n    commands.push({ payload: cmd6_payload, topic: cmd6_topic });\n}\n\nconst cmd7_payload = flow.get('cmd7_payload');\nconst cmd7_topic = flow.get('cmd7_topic');\nif (cmd7_payload && cmd7_topic) {\n    commands.push({ payload: cmd7_payload, topic: cmd7_topic });\n}\n\n// Send commands with delay\nconst delay = 1200; // milliseconds - make this configurable as needed\n\ncommands.forEach((cmd, i) => {\n    setTimeout(() => {\n        node.send(cmd);\n    }, i * delay);\n});\n\nreturn null;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 520,
         "wires": [
             [
                 "2127492e50451c2d",
-                "6538657fcbc33b67"
+                "5486c8ab595656bc"
             ]
         ]
+    },
+    {
+        "id": "5486c8ab595656bc",
+        "type": "debug",
+        "z": "77739f07d1fee012",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 540,
+        "wires": []
     },
     {
         "id": "3612154f23d5d54d",
@@ -921,7 +903,7 @@
         "type": "debug",
         "z": "d2ce7379b0b9c720",
         "name": "Status Link",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1029,8 +1011,8 @@
         "topic": "ns=3;s=Julabo",
         "payload": "{\"opcuaCommand\":\"addFolder\"}",
         "payloadType": "json",
-        "x": 200,
-        "y": 120,
+        "x": 220,
+        "y": 100,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1058,8 +1040,8 @@
         "topic": "ns=1;s=Julabo.bathTemp;datatype=Float",
         "payload": "{\"opcuaCommand\":\"addVariable\"}",
         "payloadType": "json",
-        "x": 180,
-        "y": 160,
+        "x": 200,
+        "y": 140,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1087,8 +1069,8 @@
         "topic": "ns=1;s=Julabo.status;datatype=Int32",
         "payload": "{\"opcuaCommand\":\"addVariable\"}",
         "payloadType": "json",
-        "x": 170,
-        "y": 200,
+        "x": 190,
+        "y": 180,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1116,8 +1098,8 @@
         "topic": "ns=1;s=Julabo.externalTemp;datatype=Float",
         "payload": "{\"opcuaCommand\":\"addVariable\"}",
         "payloadType": "json",
-        "x": 190,
-        "y": 240,
+        "x": 210,
+        "y": 220,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1145,8 +1127,8 @@
         "topic": "ns=1;s=Julabo.spFeedback;datatype=Float",
         "payload": "{\"opcuaCommand\":\"addVariable\"}",
         "payloadType": "json",
-        "x": 190,
-        "y": 280,
+        "x": 210,
+        "y": 260,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1237,8 +1219,8 @@
         "topic": "ns=1;s=Julabo.SP;datatype=Float",
         "payload": "{\"opcuaCommand\":\"addVariable\"}",
         "payloadType": "json",
-        "x": 160,
-        "y": 320,
+        "x": 180,
+        "y": 300,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1266,8 +1248,8 @@
         "topic": "ns=1;s=Julabo.Start;datatype=Boolean",
         "payload": "{\"opcuaCommand\":\"addVariable\"}",
         "payloadType": "json",
-        "x": 160,
-        "y": 360,
+        "x": 180,
+        "y": 340,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1279,8 +1261,8 @@
         "type": "comment",
         "z": "d2ce7379b0b9c720",
         "name": "Feedback",
-        "info": "",
-        "x": 160,
+        "info": "These are feedback coming from the \njulabo unit from the rs232 commands\nwe're converting these to opcua messages\nand posting to the server",
+        "x": 140,
         "y": 680,
         "wires": []
     },
@@ -1376,7 +1358,7 @@
         "keepsessionalive": false,
         "name": "",
         "x": 460,
-        "y": 500,
+        "y": 480,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1427,7 +1409,7 @@
         "topic": "ns=1;s=TestVariable2;datatype=Float",
         "payload": "{\"opcuaCommand\": \"addVariable\"}",
         "payloadType": "json",
-        "x": 230,
+        "x": 190,
         "y": 940,
         "wires": [
             []
@@ -1480,7 +1462,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 290,
+        "x": 250,
         "y": 980,
         "wires": [
             []
@@ -1553,9 +1535,9 @@
         "id": "5a1f7ae65d6bf43c",
         "type": "comment",
         "z": "d2ce7379b0b9c720",
-        "name": "Variable Creation",
+        "name": "Variable Creation on Startup",
         "info": "These inject nodes fire on start up \nto create the variables that we will\nbe reading/manipulating for the Julabo\nheater/chiller unit",
-        "x": 200,
+        "x": 240,
         "y": 60,
         "wires": []
     },
@@ -1563,10 +1545,10 @@
         "id": "442b47daf8eeaf9f",
         "type": "comment",
         "z": "d2ce7379b0b9c720",
-        "name": "Add SP to OPC-UA server",
+        "name": "Test injects for SP and start/stop",
         "info": "this step does NOT write to the \nunit, this just gets the value\nwritten into the server\nto be sent to the unit on\nthe other page",
-        "x": 410,
-        "y": 420,
+        "x": 230,
+        "y": 400,
         "wires": []
     },
     {
@@ -1632,7 +1614,7 @@
         "type": "debug",
         "z": "d2ce7379b0b9c720",
         "name": "status code only",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1641,219 +1623,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 440,
-        "y": 620,
+        "y": 660,
         "wires": []
-    },
-    {
-        "id": "deb6460cd45729de",
-        "type": "OpcUa-Item",
-        "z": "4d8e34e393db4e22",
-        "item": "ns=2;s=1:PST-007-Alarm-Level@Training?VALUE",
-        "datatype": "double",
-        "value": "",
-        "name": "",
-        "x": 380,
-        "y": 280,
-        "wires": [
-            [
-                "78e75a5cb6efef11"
-            ]
-        ]
-    },
-    {
-        "id": "78e75a5cb6efef11",
-        "type": "OpcUa-Client",
-        "z": "4d8e34e393db4e22",
-        "endpoint": "7290d8b0.f713d8",
-        "action": "read",
-        "time": 10000,
-        "name": "Read",
-        "x": 590,
-        "y": 340,
-        "wires": [
-            [
-                "93cc4e4000625719"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "93cc4e4000625719",
-        "type": "debug",
-        "z": "4d8e34e393db4e22",
-        "name": "Read",
-        "active": true,
-        "console": "false",
-        "complete": "payload",
-        "x": 750,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "796ac4b38bc65e24",
-        "type": "inject",
-        "z": "4d8e34e393db4e22",
-        "name": "Test read",
-        "props": [
-            {
-                "p": "payload",
-                "v": "",
-                "vt": "date"
-            },
-            {
-                "p": "topic",
-                "v": "",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 160,
-        "y": 340,
-        "wires": [
-            [
-                "deb6460cd45729de",
-                "c1364df9c35cc5ab",
-                "741f24e7e7a4b9b9",
-                "58928ca281cf46a8"
-            ]
-        ]
-    },
-    {
-        "id": "f892ba9be57f0c98",
-        "type": "OpcUa-Item",
-        "z": "4d8e34e393db4e22",
-        "item": "ns=2;s=1:PST-007-Alarm-Level@Training?SETPOINT",
-        "datatype": "Double",
-        "value": "",
-        "name": "",
-        "x": 380,
-        "y": 440,
-        "wires": [
-            [
-                "67271b558b04e85a"
-            ]
-        ]
-    },
-    {
-        "id": "67271b558b04e85a",
-        "type": "OpcUa-Client",
-        "z": "4d8e34e393db4e22",
-        "endpoint": "7290d8b0.f713d8",
-        "action": "write",
-        "time": 10000,
-        "name": "Write",
-        "x": 590,
-        "y": 440,
-        "wires": [
-            [
-                "9a5b6dbe5b47d557"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "9a5b6dbe5b47d557",
-        "type": "debug",
-        "z": "4d8e34e393db4e22",
-        "name": "Write",
-        "active": true,
-        "console": "false",
-        "complete": "true",
-        "x": 750,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "c1364df9c35cc5ab",
-        "type": "OpcUa-Item",
-        "z": "4d8e34e393db4e22",
-        "item": "ns=2;s=1:PST-007-Alarm-Level@Training?HIGH_SCALE",
-        "datatype": "double",
-        "value": "",
-        "name": "",
-        "x": 380,
-        "y": 320,
-        "wires": [
-            [
-                "78e75a5cb6efef11"
-            ]
-        ]
-    },
-    {
-        "id": "741f24e7e7a4b9b9",
-        "type": "OpcUa-Item",
-        "z": "4d8e34e393db4e22",
-        "item": "ns=2;s=1:PST-007-Alarm-Level@Training?LOW_SCALE",
-        "datatype": "double",
-        "value": "",
-        "name": "",
-        "x": 380,
-        "y": 360,
-        "wires": [
-            [
-                "78e75a5cb6efef11"
-            ]
-        ]
-    },
-    {
-        "id": "37386cb77c7b57d7",
-        "type": "inject",
-        "z": "4d8e34e393db4e22",
-        "name": "Test write 2.5",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "topic": "",
-        "payload": " 2.5",
-        "payloadType": "str",
-        "x": 150,
-        "y": 420,
-        "wires": [
-            [
-                "f892ba9be57f0c98"
-            ]
-        ]
-    },
-    {
-        "id": "409fe9ad0718dbdd",
-        "type": "inject",
-        "z": "4d8e34e393db4e22",
-        "name": "Test write 3.5",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "topic": "",
-        "payload": " 3.5",
-        "payloadType": "string",
-        "x": 150,
-        "y": 460,
-        "wires": [
-            [
-                "f892ba9be57f0c98"
-            ]
-        ]
-    },
-    {
-        "id": "58928ca281cf46a8",
-        "type": "OpcUa-Item",
-        "z": "4d8e34e393db4e22",
-        "item": "ns=2;s=1:PST-007-Alarm-Level@Training?SETPOINT",
-        "datatype": "double",
-        "value": "4",
-        "name": "",
-        "x": 380,
-        "y": 400,
-        "wires": [
-            [
-                "78e75a5cb6efef11"
-            ]
-        ]
     }
 ]
