@@ -51,7 +51,7 @@
         "bin": "false",
         "out": "char",
         "addchar": " \\r",
-        "responsetimeout": "2000"
+        "responsetimeout": "5000"
     },
     {
         "id": "34a7d51580ea7526",
@@ -339,9 +339,7 @@
         "x": 130,
         "y": 760,
         "wires": [
-            [
-                "aabe498c99b315e3"
-            ]
+            []
         ]
     },
     {
@@ -454,18 +452,19 @@
         "type": "function",
         "z": "77739f07d1fee012",
         "name": "Temp SP Concatenate",
-        "func": "var SPin = msg.payload\nmsg.payload = \"OUT_SP_00 \" + SPin  \nreturn msg;",
+        "func": "var SPin = msg.payload\nmsg.payload = \"OUT_SP_00 \" + SPin \nmsg.topic = \"spRead\"\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 740,
+        "x": 760,
         "y": 600,
         "wires": [
             [
-                "7dfbb887d7de8e64"
+                "7dfbb887d7de8e64",
+                "8a012bbb443386af"
             ]
         ]
     },
@@ -543,7 +542,7 @@
         "type": "debug",
         "z": "77739f07d1fee012",
         "name": "rs232",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -551,8 +550,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
-        "y": 120,
+        "x": 810,
+        "y": 220,
         "wires": []
     },
     {
@@ -612,9 +611,7 @@
         "x": 150,
         "y": 620,
         "wires": [
-            [
-                "02c83f8dfb88d9e3"
-            ]
+            []
         ]
     },
     {
@@ -637,11 +634,11 @@
         "id": "aabe498c99b315e3",
         "type": "OpcUa-Item",
         "z": "77739f07d1fee012",
-        "item": "ns=1;s=Julabo.startStop;datatype=Boolean",
+        "item": "ns=1;s=Julabo.Start;datatype=Boolean",
         "datatype": "Boolean",
         "value": "",
-        "name": "start/stop read",
-        "x": 320,
+        "name": "Start read",
+        "x": 300,
         "y": 760,
         "wires": [
             [
@@ -687,8 +684,8 @@
         "id": "d36bba8bc96d1c74",
         "type": "debug",
         "z": "77739f07d1fee012",
-        "name": "start/stop debug",
-        "active": true,
+        "name": "Start debug",
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -696,27 +693,28 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1080,
-        "y": 860,
+        "x": 1050,
+        "y": 760,
         "wires": []
     },
     {
         "id": "64bca74c9c13720a",
         "type": "function",
         "z": "77739f07d1fee012",
-        "name": "Start/Stop Concatenate",
-        "func": "var SS = msg.payload\nmsg.payload = \"OUT_MODE_05 \" + SS  \nreturn msg;\n",
+        "name": "Start Concatenate",
+        "func": "var SS = msg.payload\nvar value = (SS === true || SS === \"true\" || SS === 1 || SS === \"1\") ? 1 : 0\nmsg.payload = \"OUT_MODE_05 \" + value  \nmsg.topic = \"Start\"\nreturn msg;\n\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
+        "x": 790,
         "y": 760,
         "wires": [
             [
-                "d36bba8bc96d1c74"
+                "d36bba8bc96d1c74",
+                "8a012bbb443386af"
             ]
         ]
     },
@@ -735,24 +733,6 @@
         "x": 760,
         "y": 700,
         "wires": []
-    },
-    {
-        "id": "243cfe061003019b",
-        "type": "function",
-        "z": "77739f07d1fee012",
-        "name": "Read Julabo Settings",
-        "func": "const strings = [\"IN_PV_00\", \"status\", \"IN_PV_02\", \"IN_SP_00\", \"IN_MODE_01\"];\nlet index = flow.get('stringIndex') || 0;\n\nif (index < strings.length) {\n    msg.payload = strings[index];\n    flow.set('stringIndex', index + 1);\n} else {\n    // All strings sent, reset or handle completion\n    flow.set('stringIndex', 0); // Reset for next trigger\n    msg = null; // Stop sending messages\n}\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 400,
-        "y": 420,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "bb0030cf9823a3a5",
@@ -779,7 +759,8 @@
         "y": 420,
         "wires": [
             [
-                "90d3bbf01f14b078"
+                "02c83f8dfb88d9e3",
+                "aabe498c99b315e3"
             ]
         ]
     },
@@ -796,8 +777,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 650,
-        "y": 460,
+        "x": 850,
+        "y": 400,
         "wires": []
     },
     {
@@ -805,7 +786,7 @@
         "type": "debug",
         "z": "77739f07d1fee012",
         "name": "debug 2",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -820,82 +801,37 @@
         "id": "42abfdc8fba38a1e",
         "type": "debug",
         "z": "77739f07d1fee012",
-        "name": "debug 3",
-        "active": true,
+        "name": "status msg from rs232",
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1140,
+        "x": 1120,
         "y": 200,
         "wires": []
     },
     {
-        "id": "ecb80e881a74a957",
-        "type": "trigger",
-        "z": "77739f07d1fee012",
-        "name": "",
-        "op1": "1",
-        "op2": "0",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "250",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 420,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "189fb5af7e936fb1",
-        "type": "switch",
-        "z": "77739f07d1fee012",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 470,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "90d3bbf01f14b078",
+        "id": "8a012bbb443386af",
         "type": "function",
         "z": "77739f07d1fee012",
-        "name": "function 1",
-        "func": "const strings = [\"IN_PV_00\", \"status\", \"IN_PV_02\", \"IN_SP_00\", \"IN_MODE_01\"];\nconst delay = 1000; // milliseconds\n\nstrings.forEach((str, i) => {\n    setTimeout(() => {\n        node.send({ payload: str });\n    }, i * delay);\n});\n\nreturn null;\n",
+        "name": "Command List",
+        "func": "const commands = [\n    { payload: \"IN_PV_00\", topic: \"bathTemp\" },\n    { payload: \"status\", topic: \"status\" },\n    { payload: \"IN_PV_02\", topic: \"externalTemp\" },\n    { payload: \"IN_SP_00\", topic: \"spFb\" },\n    { payload: \"IN_MODE_01\", topic: \"selectedSP\" }\n];\n\nif (msg.topic === \"spRead\") {\n    commands.push({ payload: msg.payload, topic: msg.topic });\n}\nif (msg.topic === \"Start\") {\n    commands.push({ payload: msg.payload, topic: msg.topic });\n}\n\nconst delay = 1000;\n\ncommands.forEach((cmd, i) => {\n    setTimeout(() => {\n        node.send(cmd);\n    }, i * delay);\n});\n\nreturn null;\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 480,
+        "x": 440,
+        "y": 400,
         "wires": [
             [
-                "6538657fcbc33b67",
-                "2127492e50451c2d"
+                "2127492e50451c2d",
+                "6538657fcbc33b67"
             ]
         ]
     },
@@ -907,8 +843,8 @@
         "links": [
             "e3094a8fd6430774"
         ],
-        "x": 45,
-        "y": 620,
+        "x": 25,
+        "y": 720,
         "wires": [
             [
                 "ff3f207a6bb8a1a7"
@@ -923,8 +859,8 @@
         "links": [
             "32ce431112857992"
         ],
-        "x": 45,
-        "y": 660,
+        "x": 25,
+        "y": 760,
         "wires": [
             [
                 "3a8adfa94134c3f8"
@@ -939,8 +875,8 @@
         "links": [
             "dd4c9ce2f38c2cff"
         ],
-        "x": 45,
-        "y": 700,
+        "x": 25,
+        "y": 800,
         "wires": [
             [
                 "6c484d50efc98068"
@@ -955,8 +891,8 @@
         "links": [
             "9c4e6c594c080f04"
         ],
-        "x": 45,
-        "y": 740,
+        "x": 25,
+        "y": 840,
         "wires": [
             [
                 "0f9076d4a244db8d"
@@ -976,8 +912,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 940,
-        "y": 620,
+        "x": 920,
+        "y": 720,
         "wires": []
     },
     {
@@ -985,7 +921,7 @@
         "type": "debug",
         "z": "d2ce7379b0b9c720",
         "name": "Status Link",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -993,8 +929,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 930,
-        "y": 660,
+        "x": 910,
+        "y": 760,
         "wires": []
     },
     {
@@ -1010,8 +946,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
-        "y": 700,
+        "x": 930,
+        "y": 800,
         "wires": []
     },
     {
@@ -1027,8 +963,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
-        "y": 740,
+        "x": 930,
+        "y": 840,
         "wires": []
     },
     {
@@ -1223,8 +1159,8 @@
         "z": "d2ce7379b0b9c720",
         "name": "",
         "convertTo": "number",
-        "x": 190,
-        "y": 620,
+        "x": 170,
+        "y": 720,
         "wires": [
             [
                 "3db9b2c70a88bb1c"
@@ -1237,8 +1173,8 @@
         "z": "d2ce7379b0b9c720",
         "name": "",
         "convertTo": "number",
-        "x": 190,
-        "y": 700,
+        "x": 170,
+        "y": 800,
         "wires": [
             [
                 "3a85b912ab552756"
@@ -1251,8 +1187,8 @@
         "z": "d2ce7379b0b9c720",
         "name": "",
         "convertTo": "number",
-        "x": 190,
-        "y": 740,
+        "x": 170,
+        "y": 840,
         "wires": [
             [
                 "80b16ec18da246cf"
@@ -1271,11 +1207,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 200,
-        "y": 660,
+        "x": 180,
+        "y": 760,
         "wires": [
             [
-                "6c41a89f54b1e590"
+                "6c41a89f54b1e590",
+                "afe1dca70af00924"
             ]
         ]
     },
@@ -1301,7 +1238,7 @@
         "payload": "{\"opcuaCommand\":\"addVariable\"}",
         "payloadType": "json",
         "x": 160,
-        "y": 360,
+        "y": 320,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1312,7 +1249,7 @@
         "id": "3ce6a1ec9ea88dea",
         "type": "inject",
         "z": "d2ce7379b0b9c720",
-        "name": "Add startStop",
+        "name": "Add Start",
         "props": [
             {
                 "p": "payload"
@@ -1326,11 +1263,11 @@
         "crontab": "",
         "once": true,
         "onceDelay": "4.6",
-        "topic": "ns=1;s=Julabo.startStop;datatype=Boolean",
+        "topic": "ns=1;s=Julabo.Start;datatype=Boolean",
         "payload": "{\"opcuaCommand\":\"addVariable\"}",
         "payloadType": "json",
-        "x": 180,
-        "y": 400,
+        "x": 160,
+        "y": 360,
         "wires": [
             [
                 "efa7f9952d0aac5f"
@@ -1343,8 +1280,8 @@
         "z": "d2ce7379b0b9c720",
         "name": "Feedback",
         "info": "",
-        "x": 180,
-        "y": 580,
+        "x": 160,
+        "y": 680,
         "wires": []
     },
     {
@@ -1361,7 +1298,7 @@
         "id": "514b77f3dca50941",
         "type": "inject",
         "z": "d2ce7379b0b9c720",
-        "name": "Inject SP",
+        "name": "Inject SP 25",
         "props": [
             {
                 "p": "payload"
@@ -1376,9 +1313,9 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "ns=1;s=Julabo.SP;datatype=Float",
-        "payload": "22",
+        "payload": "25",
         "payloadType": "num",
-        "x": 160,
+        "x": 170,
         "y": 480,
         "wires": [
             [
@@ -1390,7 +1327,7 @@
         "id": "997d6cc763e8d9cb",
         "type": "inject",
         "z": "d2ce7379b0b9c720",
-        "name": "Inject start_stop",
+        "name": "Inject start",
         "props": [
             {
                 "p": "payload"
@@ -1404,10 +1341,10 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "ns=1;s=Julabo.startStop;datatype=Boolean",
+        "topic": "ns=1;s=Julabo.Start;datatype=Boolean",
         "payload": "true",
         "payloadType": "bool",
-        "x": 180,
+        "x": 160,
         "y": 520,
         "wires": [
             [
@@ -1460,8 +1397,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 450,
-        "y": 620,
+        "x": 430,
+        "y": 720,
         "wires": [
             [
                 "efa7f9952d0aac5f",
@@ -1490,8 +1427,8 @@
         "topic": "ns=1;s=TestVariable2;datatype=Float",
         "payload": "{\"opcuaCommand\": \"addVariable\"}",
         "payloadType": "json",
-        "x": 250,
-        "y": 840,
+        "x": 230,
+        "y": 940,
         "wires": [
             []
         ]
@@ -1543,8 +1480,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 310,
-        "y": 880,
+        "x": 290,
+        "y": 980,
         "wires": [
             []
         ]
@@ -1561,8 +1498,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 660,
+        "x": 420,
+        "y": 760,
         "wires": [
             [
                 "23129e872276b04d",
@@ -1582,8 +1519,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 700,
+        "x": 440,
+        "y": 800,
         "wires": [
             [
                 "9afad92f01486308",
@@ -1603,8 +1540,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 740,
+        "x": 440,
+        "y": 840,
         "wires": [
             [
                 "efa7f9952d0aac5f",
@@ -1628,8 +1565,83 @@
         "z": "d2ce7379b0b9c720",
         "name": "Add SP to OPC-UA server",
         "info": "this step does NOT write to the \nunit, this just gets the value\nwritten into the server\nto be sent to the unit on\nthe other page",
-        "x": 350,
+        "x": 410,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "9de881dc0eb46758",
+        "type": "inject",
+        "z": "d2ce7379b0b9c720",
+        "name": "Inject SP 47",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=Julabo.SP;datatype=Float",
+        "payload": "47",
+        "payloadType": "num",
+        "x": 170,
         "y": 440,
+        "wires": [
+            [
+                "396d0b3d93fb5c8e"
+            ]
+        ]
+    },
+    {
+        "id": "29354199e4a0ca32",
+        "type": "inject",
+        "z": "d2ce7379b0b9c720",
+        "name": "Inject stop",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=1;s=Julabo.Start;datatype=Boolean",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 160,
+        "y": 560,
+        "wires": [
+            [
+                "396d0b3d93fb5c8e"
+            ]
+        ]
+    },
+    {
+        "id": "afe1dca70af00924",
+        "type": "debug",
+        "z": "d2ce7379b0b9c720",
+        "name": "status code only",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 620,
         "wires": []
     },
     {
